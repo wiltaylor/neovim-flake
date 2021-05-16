@@ -14,6 +14,7 @@
     # Vim plugins
     gruvbox = { url = "github:morhetz/gruvbox"; flake = false; };
     nord-vim = { url = "github:arcticicestudio/nord-vim"; flake = false;};
+    vim-startify = { url = "github:mhinz/vim-startify"; flake = false;};
 
   };
 
@@ -23,6 +24,7 @@
       plugins = [
         "gruvbox"
         "nord-vim"
+        "vim-startify"
       ]; 
 
       pluginOverlay = lib.buildPluginOverlay;
@@ -48,6 +50,8 @@
 
         defaultPackage = neovimBuilder {
           config = {
+            vim.dashboard.startify.enable = true;
+            vim.dashboard.startify.bookmarks = [ { key = "c"; path = "~/config/nvim/init.vim"; }];
             vim.theme.nord.enable = true;
           };
         };

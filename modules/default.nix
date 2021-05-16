@@ -4,5 +4,6 @@
     ./core
     ./basic
     ./themes
+    ./dashboard
   ];
 }

@@ -94,7 +94,24 @@
         "gruvbox": "gruvbox",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
-        "nord-vim": "nord-vim"
+        "nord-vim": "nord-vim",
+        "vim-startify": "vim-startify"
+      }
+    },
+    "vim-startify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620487920,
+        "narHash": "sha256-//3bzFTe1WKqvQ3uYrDbk5Zu5BKq2hXQGeBhmhKIHvk=",
+        "owner": "mhinz",
+        "repo": "vim-startify",
+        "rev": "81e36c352a8deea54df5ec1e2f4348685569bed2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mhinz",
+        "repo": "vim-startify",
+        "type": "github"
       }
     }
   },
