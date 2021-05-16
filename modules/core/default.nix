@@ -42,12 +42,11 @@ in {
       description = "Set containing global variable values";
       type = types.attrs;
     };
-
   };
 
   config = let
     filterNonNull = mappings: filterAttrs (name: value: value != null) mappings;
-    globalsScript = mapAttrsFlatten(name: value: "let g:${name}=${toJSON value}") (filterNonNull cfg.globals);
+    globalsScript = mapAttrsFlatten(name: value: "let g:${name}=${toJSON value}") (filterNonNull cfg.globals); 
   in {
     vim.configRC = ''
       " Lua config from vim.luaConfigRC

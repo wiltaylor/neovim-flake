@@ -51,7 +51,13 @@
         defaultPackage = neovimBuilder {
           config = {
             vim.dashboard.startify.enable = true;
-            vim.dashboard.startify.bookmarks = [ { key = "c"; path = "~/config/nvim/init.vim"; }];
+            vim.dashboard.startify.bookmarks = [ 
+              { "c" = "~/config/nvim/init.vim"; }
+            ];
+
+            vim.dashboard.startify.commands = [
+              ":help reference"
+            ];
             vim.theme.nord.enable = true;
           };
         };
