@@ -1,0 +1,86 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1620759905,
+        "narHash": "sha256-WiyWawrgmyN0EdmiHyG2V+fqReiVi8bM9cRdMaKQOFg=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b543720b25df6ffdfcf9227afafc5b8c1fabfae8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "gruvbox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1593780126,
+        "narHash": "sha256-H8WkOC9NMPXFznv2+dwOj3syNd2sLqszmoMqST/W5hQ=",
+        "owner": "morhetz",
+        "repo": "gruvbox",
+        "rev": "bf2885a95efdad7bd5e4794dd0213917770d79b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "morhetz",
+        "repo": "gruvbox",
+        "type": "github"
+      }
+    },
+    "neovim": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "contrib",
+        "lastModified": 1621032644,
+        "narHash": "sha256-URpD3qNl6jnvcwqouzDCap+D1RjDexRm1AlEpv+rPu4=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "c57a85d53490fe53158a0cbd768941b732926d83",
+        "type": "github"
+      },
+      "original": {
+        "dir": "contrib",
+        "owner": "neovim",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1621028754,
+        "narHash": "sha256-vf4L5IC33SfHOUYtw2IVM5GGGjFKH5/pdZj073yWYZc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "72948af15bf52f9111a42b3e9866b9c2d426ece9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "gruvbox": "gruvbox",
+        "neovim": "neovim",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
