@@ -15,7 +15,7 @@
     gruvbox = { url = "github:morhetz/gruvbox"; flake = false; };
     nord-vim = { url = "github:arcticicestudio/nord-vim"; flake = false;};
     vim-startify = { url = "github:mhinz/vim-startify"; flake = false;};
-
+    lightline-vim = { url = "github:itchyny/lightline.vim"; flake = false;};
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -25,6 +25,7 @@
         "gruvbox"
         "nord-vim"
         "vim-startify"
+        "lightline-vim"
       ]; 
 
       pluginOverlay = lib.buildPluginOverlay;
@@ -53,6 +54,7 @@
             vim.dashboard.startify.enable = true;
             vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
             vim.theme.nord.enable = true;
+            vim.disableArrows = true;
 
           };
         };

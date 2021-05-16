@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "lightline-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1616315358,
+        "narHash": "sha256-mBmPtBnohmHkHKl7qwiEF/k/6AJ5+FhqMdv9SEvDQpg=",
+        "owner": "itchyny",
+        "repo": "lightline.vim",
+        "rev": "8a712365f9708044667589d9fffd87a4825d29f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "itchyny",
+        "repo": "lightline.vim",
+        "type": "github"
+      }
+    },
     "neovim": {
       "inputs": {
         "flake-utils": [
@@ -92,6 +108,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "gruvbox": "gruvbox",
+        "lightline-vim": "lightline-vim",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "nord-vim": "nord-vim",
