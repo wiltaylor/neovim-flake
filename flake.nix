@@ -13,6 +13,7 @@
 
     # Vim plugins
     gruvbox = { url = "github:morhetz/gruvbox"; flake = false; };
+    nord-vim = { url = "github:arcticicestudio/nord-vim"; flake = false;};
 
   };
 
@@ -21,6 +22,7 @@
     let
       plugins = [
         "gruvbox"
+        "nord-vim"
       ]; 
 
       pluginOverlay = lib.buildPluginOverlay;
@@ -46,7 +48,7 @@
 
         defaultPackage = neovimBuilder {
           config = {
-            vim.theme.gruvbox.enable = true;
+            vim.theme.nord.enable = true;
           };
         };
       });

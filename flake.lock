@@ -72,12 +72,29 @@
         "type": "github"
       }
     },
+    "nord-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1619948108,
+        "narHash": "sha256-ox57vTGtDh25VG1wy3MppQmyMKoyAzY4UFQ1RXz4uzU=",
+        "owner": "arcticicestudio",
+        "repo": "nord-vim",
+        "rev": "5867535cea7bb6b4c219fa0726c93e4b055debd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arcticicestudio",
+        "repo": "nord-vim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "gruvbox": "gruvbox",
         "neovim": "neovim",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nord-vim": "nord-vim"
       }
     }
   },

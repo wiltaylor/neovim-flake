@@ -2,5 +2,6 @@
 {
   imports = [ 
     ./gruvbox.nix 
+    ./nord.nix
   ];
 }
