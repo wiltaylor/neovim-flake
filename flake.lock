@@ -104,6 +104,22 @@
         "type": "github"
       }
     },
+    "nvim-lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621200239,
+        "narHash": "sha256-vbsjBWFbdeGmBEriSAWGM+JM9s7+dyHo1W0vzzLruGU=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "0699e6c16c37c08418339675d142af0e00ccbeaa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -112,6 +128,7 @@
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "nord-vim": "nord-vim",
+        "nvim-lspconfig": "nvim-lspconfig",
         "vim-startify": "vim-startify"
       }
     },

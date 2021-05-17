@@ -6,5 +6,6 @@
     ./themes
     ./dashboard
     ./statusline
+    ./lsp
   ];
 }
