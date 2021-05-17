@@ -18,6 +18,11 @@
     lightline-vim = { url = "github:itchyny/lightline.vim"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
     completion-nvim = { url = "github:nvim-lua/completion-nvim"; flake = false; };
+    vim-nix = { url = "github:LnL7/vim-nix"; flake = false; };
+    nvim-dap = { url = github:mfussenegger/nvim-dap; flake = false; };
+
+    # Nix LSP
+    rnix-lsp.url = github:nix-community/rnix-lsp;
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -30,6 +35,8 @@
           "lightline-vim"
           "nvim-lspconfig"
           "completion-nvim"
+          "vim-nix"
+          "nvim-dap"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;
@@ -41,6 +48,7 @@
             pluginOverlay
             (final: prev: {
               neovim-nightly = neovim.defaultPackage.${system};
+              rnix-lsp = inputs.rnix-lsp.defaultPackage.${system};
             })
           ];
         };
@@ -72,7 +80,8 @@
             vim.statusline.lightline.enable = true;
             vim.lsp.enable = true;
             vim.lsp.bash = true;
-
+            vim.lsp.go = true;
+            vim.lsp.nix = true;
           };
         };
       });
