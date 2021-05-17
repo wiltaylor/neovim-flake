@@ -17,6 +17,7 @@
     vim-startify = { url = "github:mhinz/vim-startify"; flake = false; };
     lightline-vim = { url = "github:itchyny/lightline.vim"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
+    completion-nvim = { url = "github:nvim-lua/completion-nvim"; flake = false; };
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -28,6 +29,7 @@
           "vim-startify"
           "lightline-vim"
           "nvim-lspconfig"
+          "completion-nvim"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;

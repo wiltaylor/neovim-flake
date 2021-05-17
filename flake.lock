@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "completion-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1617852343,
+        "narHash": "sha256-Tq1cxbmTrOu9iNSd7HrRobkbv71/8+id+fm9dMth+As=",
+        "owner": "nvim-lua",
+        "repo": "completion-nvim",
+        "rev": "8bca7aca91c947031a8f14b038459e35e1755d90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "completion-nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1620759905,
@@ -122,6 +138,7 @@
     },
     "root": {
       "inputs": {
+        "completion-nvim": "completion-nvim",
         "flake-utils": "flake-utils",
         "gruvbox": "gruvbox",
         "lightline-vim": "lightline-vim",
