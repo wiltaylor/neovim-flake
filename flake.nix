@@ -82,6 +82,7 @@
             vim.lsp.bash = true;
             vim.lsp.go = true;
             vim.lsp.nix = true;
+
           };
         };
       });

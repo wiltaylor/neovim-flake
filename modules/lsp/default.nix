@@ -51,12 +51,11 @@ in {
 
       "<leader>q" = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>";
 
-      # dap
-      "<F10>" = "lua require'dap'.step_over()<cr>";
-      "<F11>" = "lua require'dap'.step_into()<cr>";
-      "<F12>" = "lua require'dap'.step_out()<cr>";
-      "<F5>" = "lua require'dap'.continue()<cr>";
-      "<leader>b" = "lua require'dap'.toggle_breakpoint()<cr>";
+      "<f10>" = "<cmd>lua require'dap'.step_over()<cr>";
+      "<f11>" = "<cmd>lua require'dap'.step_into()<cr>";
+      "<f12>" = "<cmd>lua require'dap'.step_out()<cr>";
+      "<f5>" = "<cmd>lua require'dap'.continue()<cr>";
+      "<leader>b" = "<cmd>lua require'dap'.toggle_breakpoint()<cr>";
     };
 
     vim.globals = {
@@ -64,7 +63,7 @@ in {
 
     vim.luaConfigRC = ''
       local lspconfig = require'lspconfig'
-      local dap = require "dap"
+      local dap = require'dap'
 
       ${if cfg.bash then ''
         lspconfig.bashls.setup{
@@ -85,7 +84,7 @@ in {
           local port = 38697
           handle, pid_or_err =
             vim.loop.spawn(
-            "dlv",
+            "${pkgs.delve}/bin/dlv",
             {
               args = {"dap", "-l", "127.0.0.1:" .. port},
               detached = true
@@ -112,7 +111,7 @@ in {
             type = "go",
             name = "Debug",
             request = "launch",
-            program = "${pkgs.delve}/bin/delve"
+            program = "${"$"}{file}" 
           }
         }
       '' else ""}
