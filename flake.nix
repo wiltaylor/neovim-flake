@@ -92,6 +92,7 @@
             vim.lsp.bash = true;
             vim.lsp.go = true;
             vim.lsp.nix = true;
+            vim.lsp.python = true;
             vim.fuzzyfind.telescope.enable = true;
             vim.filetree.nvimTreeLua.enable = true;
           };
