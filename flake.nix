@@ -93,8 +93,22 @@
             vim.lsp.go = true;
             vim.lsp.nix = true;
             vim.lsp.python = true;
+            vim.lsp.ruby = true;
+            vim.lsp.rust = true;
+            vim.lsp.terraform = true;
+            vim.lsp.typescript = true;
+            vim.lsp.vimscript = true;
+            vim.lsp.yaml = true;
+            vim.lsp.docker = true;
+            vim.lsp.tex = true;
+            vim.lsp.css = true;
+            vim.lsp.html = true;
+            vim.lsp.json = true;
+            vim.lsp.clang = true;
+            vim.lsp.cmake = true;
             vim.fuzzyfind.telescope.enable = true;
             vim.filetree.nvimTreeLua.enable = true;
+
           };
         };
       });
