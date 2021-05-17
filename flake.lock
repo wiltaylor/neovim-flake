@@ -198,6 +198,86 @@
         "type": "github"
       }
     },
+    "nvim-telescope": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621190176,
+        "narHash": "sha256-SFJ+RvDPMHPdTCtb+2yiZeEhobSYndbvN43SU/aHxfo=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "69eb5eacff421e05aeb1e02ff97ef64bfd955c53",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-tree-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1619123360,
+        "narHash": "sha256-AN/7FOjaDw3zbz/sYjD3cZEYquarQQTYLuSgKBjOynw=",
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "rev": "f39869514645b98ec30bc8826763c288b6cbdbef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618594387,
+        "narHash": "sha256-DOurMGv1XHY3J/6N5fRrAk45MmM55jobhkVKAcKsCeM=",
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "rev": "1db27380053de0cd4aaabd236a67c52d33199f1a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
+    "plenary-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620472381,
+        "narHash": "sha256-R1RcT2gMxFhPPLcQS8ybftiCdGC0WjH6bgtikjwfPGY=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "3f993308024697186c02d51df1330bf07c12535a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
+    "popup-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620472364,
+        "narHash": "sha256-D/ZMou2fa0yUVyQDfGm26urotqEgS4qahH9KJ4r52cw=",
+        "owner": "nvim-lua",
+        "repo": "popup.nvim",
+        "rev": "5e3bece7b4b4905f4ec89bee74c09cfd8172a16a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "popup.nvim",
+        "type": "github"
+      }
+    },
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
@@ -229,6 +309,11 @@
         "nord-vim": "nord-vim",
         "nvim-dap": "nvim-dap",
         "nvim-lspconfig": "nvim-lspconfig",
+        "nvim-telescope": "nvim-telescope",
+        "nvim-tree-lua": "nvim-tree-lua",
+        "nvim-web-devicons": "nvim-web-devicons",
+        "plenary-nvim": "plenary-nvim",
+        "popup-nvim": "popup-nvim",
         "rnix-lsp": "rnix-lsp",
         "vim-nix": "vim-nix",
         "vim-startify": "vim-startify"

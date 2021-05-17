@@ -19,7 +19,12 @@
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
     completion-nvim = { url = "github:nvim-lua/completion-nvim"; flake = false; };
     vim-nix = { url = "github:LnL7/vim-nix"; flake = false; };
-    nvim-dap = { url = github:mfussenegger/nvim-dap; flake = false; };
+    nvim-dap = { url = "github:mfussenegger/nvim-dap"; flake = false; };
+    nvim-telescope = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
+    popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
+    plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
+    nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
+    nvim-tree-lua = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
 
     # Nix LSP
     rnix-lsp.url = github:nix-community/rnix-lsp;
@@ -37,6 +42,11 @@
           "completion-nvim"
           "vim-nix"
           "nvim-dap"
+          "nvim-telescope"
+          "popup-nvim"
+          "plenary-nvim"
+          "nvim-web-devicons"
+          "nvim-tree-lua"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;
@@ -82,7 +92,8 @@
             vim.lsp.bash = true;
             vim.lsp.go = true;
             vim.lsp.nix = true;
-
+            vim.fuzzyfind.telescope.enable = true;
+            vim.filetree.nvimTreeLua.enable = true;
           };
         };
       });

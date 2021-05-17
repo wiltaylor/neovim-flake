@@ -7,5 +7,7 @@
     ./dashboard
     ./statusline
     ./lsp
+    ./fuzzyfind
+    ./filetree
   ];
 }

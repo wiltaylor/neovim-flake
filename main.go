@@ -1,13 +1,15 @@
 package main
 
-import ( "fmt" )
+import (
+	"fmt"
+)
 
 func main() {
-  fmt.Println("Hey")
-  x := 7
-  foo()
+	fmt.Println("Hey")
+	x := 7
+	foo()
 
-  fmt.Printf("%d", x)
+	fmt.Printf("%d", x)
 }
 
 func foo() {
