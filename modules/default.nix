@@ -5,5 +5,6 @@
     ./basic
     ./themes
     ./dashboard
+    ./statusline
   ];
 }

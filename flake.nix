@@ -55,6 +55,7 @@
             vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
             vim.theme.nord.enable = true;
             vim.disableArrows = true;
+            vim.statusline.lightline.enable = true;
 
           };
         };
