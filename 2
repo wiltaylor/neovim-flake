@@ -64,68 +64,6 @@ in {
       default = "relNumber";
       description = "How line numbers are displayed. none, relative, number, relNumber";
       type = with types; enum ["relative" "number" "relNumber" "none"];
-    };
-
-    preventJunkFiles = mkOption {
-      default = true;
-      description = "Prevent swapfile, backupfile from being created";
-      type = types.bool;
-    };
-
-    tabWidth = mkOption {
-      default = 2;
-      description = "Set the width of tabs to 2";
-      type = types.int;
-    };
-
-    autoIndent = mkOption {
-      default = true;
-      description = "Enable auto indent";
-      type = types.bool;
-    };
-
-    cmdHeight = mkOption {
-      default = 2;
-      description = "Hight of the command pane";
-      type = types.int;
-    };
-
-    updateTime = mkOption {
-      default = 300;
-      description = "The number of milliseconds till Cursor Hold event is fired";
-      type = types.int;
-    };
-
-    showSignColumn = mkOption {
-      default = true;
-      description = "Show the sign column";
-      type = types.bool;
-    };
-
-    bell = mkOption {
-      default = "none";
-      description = "Set how bells are handled. Options: on, visual or none";
-      type = types.enum [ "none" "visual" "on" ];
-    };
-
-    mapTimeout = mkOption {
-      default = 500;
-      description = "Timeout in ms that neovim will wait for mapped action to complete";
-      type = types.int;
-    };
-
-    splitBelow = mkOption {
-      default = true;
-      description = "New splits will open below instead of on top";
-      type = types.bool;
-    };
-
-    splitRight = mkOption {
-      default = true;
-      description = "New splits will open to the right";
-      type = types.bool;
-    };
-
   };
 
   config = (
@@ -154,52 +92,8 @@ in {
     vim.configRC = ''
 
       "Settings that are set for everything
-      set encoding=utf-8
-      set mouse=${cfg.mouseSupport}
-      set tabstop=${toString cfg.tabWidth}
-      set shiftwidth=${toString cfg.tabWidth}
-      set softtabstop=${toString cfg.tabWidth}
-      set expandtab
-      set cmdheight=${toString cfg.cmdHeight}
-      set updatetime=${toString cfg.updateTime}
-      set shortmess+=c
-      set tm=${toString cfg.mapTimeout}
-      set hidden
-
-      ${writeIf cfg.splitBelow ''
-        set splitbelow
-      ''}
-
-      ${writeIf cfg.splitRight ''
-        set splitright
-      ''}
-
-      ${writeIf cfg.showSignColumn ''
-        set signcolumn=yes
-      ''}
-
-      ${writeIf cfg.autoIndent ''
-        set ai
-      ''}
-            
-      ${writeIf cfg.preventJunkFiles ''
-        set noswapfile
-        set nobackup
-        set nowritebackup
-      ''}
-
-      ${writeIf (cfg.bell == "none") ''
-        set noerrorbells
-        set novisualbell
-      ''}
-
-      ${writeIf (cfg.bell == "on") ''
-        set novisualbell
-      ''}
-
-      ${writeIf (cfg.bell == "visual") ''
-        set noerrorbells
-      ''}
+      encoding=utf-8
+      set mouse=${mouseSupport}
 
       ${writeIf (cfg.lineNumberMode == "relative") ''
         set relativenumber
