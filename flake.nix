@@ -82,8 +82,7 @@
         defaultPackage = packages.x86_64-linux.neovimWT;
 
 
-        overlay = (final: prev: {
-          system = "x86_64-linux";
+        overlay = (self: super: {
           neovimWT = packages.x86_64-linux.neovimWT;
         });
 
