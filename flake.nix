@@ -82,6 +82,12 @@
         defaultPackage = packages.x86_64-linux.neovimWT;
 
 
+        overlay = final: prev: {
+          system = "x86_64-linux";
+          neovimWT = packages.x86_64-linux.enovimWT;
+        };
+
+
         packages.x86_64-linux.neovimWT = neovimBuilder {
           config = {
             vim.dashboard.startify.enable = true;
