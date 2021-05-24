@@ -79,9 +79,10 @@
 
         defaultApp = apps.nvim;
 
-        packs = pkgs;
+        defaultPackage = packages.x86_64-linux.neovimWT;
 
-        defaultPackage = neovimBuilder {
+
+        packages.x86_64-linux.neovimWT = neovimBuilder {
           config = {
             vim.dashboard.startify.enable = true;
             vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
@@ -108,7 +109,6 @@
             vim.lsp.cmake = true;
             vim.fuzzyfind.telescope.enable = true;
             vim.filetree.nvimTreeLua.enable = true;
-
           };
         };
       });
