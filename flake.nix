@@ -79,15 +79,16 @@
 
         defaultApp = apps.nvim;
 
-        defaultPackage = packages.x86_64-linux.neovimWT;
+        defaultPackage = packages.neovimWT;
 
 
         overlay = (self: super: {
           inherit neovimBuilder;
+          neovimWT = packages.neovimWT;
         });
 
 
-        packages.x86_64-linux.neovimWT = neovimBuilder {
+        packages.neovimWT = neovimBuilder {
           config = {
             vim.dashboard.startify.enable = true;
             vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
