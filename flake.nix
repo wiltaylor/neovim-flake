@@ -85,7 +85,8 @@
         overlay = (self: super: {
           inherit neovimBuilder;
           neovimWT = packages.neovimWT;
-        }) // pluginOverlay;
+	  neovimPlugins = pkgs.neovimPlugins;
+        });
 
 
         packages.neovimWT = neovimBuilder {
