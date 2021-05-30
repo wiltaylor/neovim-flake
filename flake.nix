@@ -83,7 +83,7 @@
 
 
         overlay = (self: super: {
-          neovimWT = packages.x86_64-linux.neovimWT;
+          inherit neovimBuilder;
         });
 
 
