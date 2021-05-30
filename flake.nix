@@ -68,7 +68,7 @@
         neovimBuilder = lib.neovimBuilder;
       in
       rec {
-        inherit neovimBuilder;
+        inherit neovimBuilder pkgs;
 
         apps = {
           nvim = {
@@ -87,7 +87,6 @@
           neovimWT = packages.neovimWT;
 	  neovimPlugins = pkgs.neovimPlugins;
         });
-
 
         packages.neovimWT = neovimBuilder {
           config = {
