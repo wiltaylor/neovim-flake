@@ -40,7 +40,7 @@ let
   };
 
   nvimWrapper = pkgs.writeScriptBin "nvim" ''
-    !# ${pkgs.bash}/bin/bash
+    #! ${pkgs.bash}/bin/bash
     exec -a "$0" ${pkgs.neovim-nightly}/bin/nvim -u ${vimcfg} $@
   '';
 
