@@ -173,7 +173,7 @@ Leader Key is Space
  - `ctrl + wk` - Move to above window
 
 # File tree
- - `ctrl+ n` - Toggle file tree
+ - `leader + n` - Toggle file tree
 
 # Telescope
  - `leader + ff` - Find file
@@ -185,11 +185,14 @@ Leader Key is Space
  - `F2` - Rename
  - `Leader + R` - Rename
  - `Leader + r` - References
- - `Leader + d` - Go to definition
- - `Leader + e` - Show line diagnostics
+ - `Leader + D` - Go to definition
+ - `Leader + I` - Go to implimentation
+ - `Leader + e` - Show document diag
+ - `Leader + E` - Show workspace diag
  - `Leader + f` - Format buffer
  - `Leader + k` - Signature help
  - `Leader + K` - Hover text
+ - `Leader + a` - Do code action
 
 ## Debug
  - `F5` - Run
@@ -198,4 +201,22 @@ Leader Key is Space
  - `F12` - Step out
  - `<leader> + b` - Set break point
  - `F9` - Open debug repl
+ - `<leader> + d` - All dap commands
+ - `<leader> + B` - List break points
+ - `<leader> + dv` - List variables
+ - `<leader> + df` - List frames
 
+## Git
+ - `<leader>g` - Open magit fullscreen
+ - `enter` - Expand hunks
+ - `R` - Refresh magit buffer
+ - `q` - Quit magit buffer
+ - `s` - Stage or unstag hunk
+ - `F` - Stage or unstag the whole file
+ - `DDD` - Discard changes to hunk
+ - `L` - Stage the line under cursor
+ - `E` - Edit file that is selected
+ - `CA` - Set commit mode to ammend
+ - `CU` - Go back to stage mode
+ - `I` - Add file under cursor
+ - `CC` - Commit changes or move to commit mode.

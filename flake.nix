@@ -21,11 +21,14 @@
     vim-nix = { url = "github:LnL7/vim-nix"; flake = false; };
     nvim-dap = { url = "github:mfussenegger/nvim-dap"; flake = false; };
     nvim-telescope = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
+    telescope-dap = { url = "github:nvim-telescope/telescope-dap.nvim"; flake = false; };
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
     nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     nvim-tree-lua = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
-
+    vimagit = { url = "github:jreybert/vimagit"; flake = false; };
+    fugitive = { url = "github:tpope/vim-fugitive"; flake = false; };
+    nvim-lightbulb = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
     # Nix LSP
     rnix-lsp.url = github:nix-community/rnix-lsp;
   };
@@ -47,6 +50,10 @@
           "plenary-nvim"
           "nvim-web-devicons"
           "nvim-tree-lua"
+          "telescope-dap"
+          "vimagit"
+          "fugitive" 
+          "nvim-lightbulb"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;
@@ -115,8 +122,11 @@
             vim.lsp.json = true;
             vim.lsp.clang = true;
             vim.lsp.cmake = true;
+            vim.lsp.lightbulb = true;
             vim.fuzzyfind.telescope.enable = true;
             vim.filetree.nvimTreeLua.enable = true;
+            vim.git.enable = true;
+
           };
         };
       });

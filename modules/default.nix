@@ -9,5 +9,6 @@
     ./lsp
     ./fuzzyfind
     ./filetree
+    ./git
   ];
 }

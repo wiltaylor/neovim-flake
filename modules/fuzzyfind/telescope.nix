@@ -24,5 +24,7 @@ in {
       "<leader>fb" = "<cmd>Telescope buffers<cr>";
       "<leader>fh" = "<cmd>Telescope help_tags<cr>";
     };
+
+
   };
 }

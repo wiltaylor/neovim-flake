@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1624145961,
+        "narHash": "sha256-jn9vrYmdqGsNCQjAc1rcSanBg56BnSNvqGv9UO+Ojy4=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "79e2bd381ad6e7f3d70ce4a8ec9f3f107b40f053",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "type": "github"
+      }
+    },
     "gruvbox": {
       "flake": false,
       "locked": {
@@ -182,6 +198,22 @@
         "type": "github"
       }
     },
+    "nvim-lightbulb": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1622905072,
+        "narHash": "sha256-Ki9KQA2gfKkVIZWwFZU8NSfvTqH7s7tf6hpYfvf68Sg=",
+        "owner": "kosayoda",
+        "repo": "nvim-lightbulb",
+        "rev": "388cc8caaf3e10836810aabbb9283a27dd8584cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kosayoda",
+        "repo": "nvim-lightbulb",
+        "type": "github"
+      }
+    },
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -302,12 +334,14 @@
       "inputs": {
         "completion-nvim": "completion-nvim",
         "flake-utils": "flake-utils",
+        "fugitive": "fugitive",
         "gruvbox": "gruvbox",
         "lightline-vim": "lightline-vim",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "nord-vim": "nord-vim",
         "nvim-dap": "nvim-dap",
+        "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-telescope": "nvim-telescope",
         "nvim-tree-lua": "nvim-tree-lua",
@@ -315,8 +349,26 @@
         "plenary-nvim": "plenary-nvim",
         "popup-nvim": "popup-nvim",
         "rnix-lsp": "rnix-lsp",
+        "telescope-dap": "telescope-dap",
         "vim-nix": "vim-nix",
-        "vim-startify": "vim-startify"
+        "vim-startify": "vim-startify",
+        "vimagit": "vimagit"
+      }
+    },
+    "telescope-dap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1616786019,
+        "narHash": "sha256-aGiBknPDjYL4Vlp0DKbJpsKiEaA5dzgg87FQvgThl7k=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-dap.nvim",
+        "rev": "b4134fff5cbaf3b876e6011212ed60646e56f060",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-dap.nvim",
+        "type": "github"
       }
     },
     "utils": {
@@ -363,6 +415,22 @@
       "original": {
         "owner": "mhinz",
         "repo": "vim-startify",
+        "type": "github"
+      }
+    },
+    "vimagit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1605702176,
+        "narHash": "sha256-sN2ghSxcgZmr6eto8x5En075npQx7HpZmFQ+bm7AQ8w=",
+        "owner": "jreybert",
+        "repo": "vimagit",
+        "rev": "aaf1278f03e866f0b978d4b0f0cc7084db251129",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jreybert",
+        "repo": "vimagit",
         "type": "github"
       }
     }
