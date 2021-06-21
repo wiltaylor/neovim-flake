@@ -50,17 +50,14 @@ in {
 
     vim.nnoremap = {
       "<f2>" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>r" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>d" = "<cmd>lua vim.lsp.buf.type_definition()<cr>";
+      "<leader>R" = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      "<leader>r" = "<cmd>lua vim.lsp.buf.references()<CR>";
+
+      "<leader>d" = "<cmd>lua vim.lsp.buf.definition()<cr>";
       "<leader>e" = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>";
       "<leader>f" = "<cmd>lua vim.lsp.buf.formatting()<CR>";
       "<leader>k" = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
-
-      gD = "<cmd>lua vim.lsp.buf.declaration()<CR>";
-      gd = "<cmd>lua vim.lsp.buf.definition()<CR>";
-      gi = "<cmd>lua vim.lsp.buf.implementation()<CR>";
-      gr = "<cmd>lua vim.lsp.buf.references()<CR>";
-      K = "<cmd>lua vim.lsp.buf.hover()<CR>";
+      "<leader>K" = "<cmd>lua vim.lsp.buf.hover()<CR>";
 
       "[d" = "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>";
       "]d" = "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>";
@@ -72,6 +69,7 @@ in {
       "<f12>" = "<cmd>lua require'dap'.step_out()<cr>";
       "<f5>" = "<cmd>lua require'dap'.continue()<cr>";
       "<leader>b" = "<cmd>lua require'dap'.toggle_breakpoint()<cr>";
+      "<f9>" = "<cmd>lua require'dap'.repl.open()";
     };
 
     vim.globals = {
