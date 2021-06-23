@@ -29,8 +29,22 @@
     vimagit = { url = "github:jreybert/vimagit"; flake = false; };
     fugitive = { url = "github:tpope/vim-fugitive"; flake = false; };
     nvim-lightbulb = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
-    # Nix LSP
+    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false;};
+    nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false;};
     rnix-lsp.url = github:nix-community/rnix-lsp;
+    barbar-nvim = { url = "github:romgrk/barbar.nvim"; flake = false; };
+    editorconfig-vim = { url = "github:editorconfig/editorconfig-vim"; flake = false; };
+    indentline = { url = "github:Yggdroot/indentLine"; flake = false; };
+    indent-blankline-nvim = { url = "github:lukas-reineke/indent-blankline.nvim"; flake = false; };
+    nvim-blame-line = { url = "github:tveskag/nvim-blame-line"; flake = false; };
+    nvim-dap-virtual-text = { url = "github:theHamsta/nvim-dap-virtual-text"; flake = false; };
+    vim-cursorword = { url = "github:itchyny/vim-cursorword"; flake = false; };
+    vim-dadbod = { url = "github:tpope/vim-dadbod"; flake = false; };
+    vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
+    vim-hexokinase = { url = "github:RRethy/vim-hexokinase"; flake = false; };
+    vim-which-key = { url = "github:liuchengxu/vim-which-key"; flake = false; };
+    vim-test = { url = "github:vim-test/vim-test"; flake = false; };
+    vim-floaterm = { url = "github:voldikss/vim-floaterm"; flake = false; };
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -54,6 +68,21 @@
           "vimagit"
           "fugitive" 
           "nvim-lightbulb"
+          "nvim-treesitter"
+          "nvim-treesitter-context"
+          "barbar-nvim"
+          "editorconfig-vim"
+          "indent-blankline-nvim"
+          "indentline"
+          "nvim-blame-line"
+          "nvim-dap-virtual-text"
+          "vim-cursorword"
+          "vim-dadbod"
+          "vim-dadbod-ui"
+          "vim-hexokinase"
+          "vim-which-key"
+          "vim-test"
+          "vim-floaterm"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;
@@ -123,9 +152,16 @@
             vim.lsp.clang = true;
             vim.lsp.cmake = true;
             vim.lsp.lightbulb = true;
+            vim.lsp.variableDebugPreviews = true;
             vim.fuzzyfind.telescope.enable = true;
             vim.filetree.nvimTreeLua.enable = true;
             vim.git.enable = true;
+            vim.tabbar.barbar.enable = true;
+            vim.formatting.editorConfig.enable = true;
+            vim.editor.indentGuide = true;
+            vim.editor.underlineCurrentWord = true;
+            vim.database.enable = true;
+            vim.test.enable = true;
 
           };
         };

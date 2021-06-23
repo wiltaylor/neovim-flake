@@ -30,6 +30,7 @@ in {
     json = mkEnableOption "Enable JSON";
 
     lightbulb = mkEnableOption "Enable Light Bulb";
+    variableDebugPreviews = mkEnableOption "Enable variable previews";
 
   };
 
@@ -41,6 +42,10 @@ in {
       (if cfg.nix then vim-nix else null)
       telescope-dap
       (if cfg.lightbulb then nvim-lightbulb else null)
+      (if cfg.variableDebugPreviews then nvim-dap-virtual-text else null)
+      nvim-treesitter
+      nvim-treesitter-context
+
     ];
 
     vim.configRC = ''
@@ -50,6 +55,10 @@ in {
 
       " Set completeopt to have a better completion experience
       set completeopt=menuone,noinsert,noselect
+
+      ${if cfg.variableDebugPreviews then ''
+        let g:dap_virtual_text = v:true
+      '' else ""}
     '';
 
     vim.nnoremap = {
@@ -90,6 +99,37 @@ in {
     vim.luaConfigRC = ''
       local lspconfig = require'lspconfig'
       local dap = require'dap'
+
+      --Tree sitter config
+      require('nvim-treesitter.configs').setup {
+        highlight = {
+          enable = true,
+          disable = {},
+        },
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+        },
+         autotag = {
+          enable = true,
+        },
+        context_commentstring = {
+          enable = true,
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+          },
+        },
+      }
+
+      vim.cmd [[set foldmethod=expr]]
+      vim.cmd [[set foldlevel=10]]
+      vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
 
       ${if cfg.lightbulb then ''
         require'nvim-lightbulb'.update_lightbulb {

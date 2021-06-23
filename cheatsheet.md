@@ -174,6 +174,20 @@ Leader Key is Space
 
 # File tree
  - `leader + n` - Toggle file tree
+ - `a` - Add new file (or folder if you leave a / at end)
+ - `r` - Rename file
+ - `d` - Delete file or folder
+ - `y` - Copy file name to system clipboard
+ - `Y` - Copy relative path to system clipboard
+ - `gy` - Copy absolute path to system clipboard.
+ - `x` - cut file
+ - `p` - paste file from clipboard
+ - `ctrl + v` - open in vert split
+ - `ctrl + x` - open in horizontal split
+ - `tab` - Open file but stay in tree (preview)
+ - `R` - Refresh tree
+ - `I` - toggle hidden folders visability
+ - `H` - toggle dot files visability
 
 # Telescope
  - `leader + ff` - Find file
@@ -206,6 +220,16 @@ Leader Key is Space
  - `<leader> + dv` - List variables
  - `<leader> + df` - List frames
 
+## Test runner
+ - `<leader> + t` - Run whole test suite
+ - `<leader> + tn` 
+
+## Terminal Windows
+ - `<leader>~` - Open new floating terminal
+ - `<leader>~j` - next floating terminal
+ - `<leader>~k` - prev floating terminal
+ - `<escape>` - Close terminal
+
 ## Git
  - `<leader>g` - Open magit fullscreen
  - `enter` - Expand hunks
@@ -220,3 +244,8 @@ Leader Key is Space
  - `CU` - Go back to stage mode
  - `I` - Add file under cursor
  - `CC` - Commit changes or move to commit mode.
+
+
+ ? How to do snippets
+
+
