@@ -150,7 +150,7 @@
             vim.lsp.html = true;
             vim.lsp.json = true;
             vim.lsp.clang = true;
-            vim.lsp.cmake = true;
+            vim.lsp.cmake = false; # Currently broken
             vim.lsp.lightbulb = true;
             vim.lsp.variableDebugPreviews = true;
             vim.fuzzyfind.telescope.enable = true;
