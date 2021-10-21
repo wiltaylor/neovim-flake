@@ -17,7 +17,7 @@ in {
   config = mkIf cfg.enable {
 
     vim.nnoremap = {
-      "<leader>g" = "<cmd>MagitOnly<cr>";
+      "<leader>gs" = "<cmd>Magit<cr>";
     };
 
     vim.startPlugins = with pkgs.neovimPlugins; [ 
@@ -26,6 +26,18 @@ in {
 
       (if cfg.blameLine then nvim-blame-line else null)
     ];
+    
+    vim.luaConfigRC = ''
+      local wk = require("which-key")
+
+      wk.register({
+        g = {
+          name = "Git",
+          s = {"Status "},
+        },
+      }, { prefix = "<leader>" })
+    '';
+
 
     vim.configRC = ''
       ${if cfg.blameLine then ''

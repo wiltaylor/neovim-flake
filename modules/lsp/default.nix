@@ -62,41 +62,65 @@ in {
     '';
 
     vim.nnoremap = {
-      "<f2>" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>R" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>r" = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>";
-      "<leader>A" = "<cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>";
+      #"<f2>" = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      "<leader>cR" = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      "<leader>cr" = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>";
+      "<leader>ca" = "<cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>";
 
-      "<leader>D" = "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>";
-      "<leader>I" = "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>";
-      "<leader>e" = "<cmd>lua require'telescope.builtin'.lsp_document_diagnostics()<cr>";
-      "<leader>E" = "<cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<cr>";
-      "<leader>f" = "<cmd>lua vim.lsp.buf.formatting()<CR>";
-      "<leader>k" = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
-      "<leader>K" = "<cmd>lua vim.lsp.buf.hover()<CR>";
+      "<leader>cd" = "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>";
+      "<leader>ci" = "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>";
+      #"<leader>e" = "<cmd>lua require'telescope.builtin'.lsp_document_diagnostics()<cr>";
+      #"<leader>E" = "<cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<cr>";
+      "<leader>cf" = "<cmd>lua vim.lsp.buf.formatting()<CR>";
+      "<leader>ck" = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
+      #"<leader>K" = "<cmd>lua vim.lsp.buf.hover()<CR>";
 
-      "[d" = "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>";
-      "]d" = "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>";
+      #"[d" = "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>";
+      #"]d" = "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>";
 
-      "<leader>q" = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>";
+      #"<leader>q" = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>";
 
-      "<f10>" = "<cmd>lua require'dap'.step_over()<cr>";
-      "<f11>" = "<cmd>lua require'dap'.step_into()<cr>";
-      "<f12>" = "<cmd>lua require'dap'.step_out()<cr>";
-      "<f5>" = "<cmd>lua require'dap'.continue()<cr>";
-      "<leader>b" = "<cmd>lua require'dap'.toggle_breakpoint()<cr>";
-      "<f9>" = "<cmd>lua require'dap'.repl.open()";
+      "<leader>do" = "<cmd>lua require'dap'.step_over()<cr>";
+      "<leader>ds" = "<cmd>lua require'dap'.step_into()<cr>";
+      "<leader>dO" = "<cmd>lua require'dap'.step_out()<cr>";
+      "<leader>dc" = "<cmd>lua require'dap'.continue()<cr>";
+      "<leader>db" = "<cmd>lua require'dap'.toggle_breakpoint()<cr>";
+      "<leader>dr" = "<cmd>lua require'dap'.repl.open()<cr>";
 
-      "<leader>d" = "<cmd>Telescope dap commands<cr>";
-      "<leader>B" = "<cmd>Telescope dap list_breakpoints<cr>";
-      "<leader>dv" = "<cmd>Telescope dap variables<cr>";
-      "<leader>df" = "<cmd>Telescope dap frames<cr>";
+      #"<leader>d" = "<cmd>Telescope dap commands<cr>";
+      #"<leader>B" = "<cmd>Telescope dap list_breakpoints<cr>";
+      #"<leader>dv" = "<cmd>Telescope dap variables<cr>";
+      #"<leader>df" = "<cmd>Telescope dap frames<cr>";
     };
 
     vim.globals = {
     };
 
     vim.luaConfigRC = ''
+      local wk = require("which-key")
+      wk.register({
+        c = {
+          name = "Code",
+          a = {"Code Action"},
+          f = {"Format"},
+          d = {"Definitions"},
+          i = {"Implementations"},
+          R = {"Rename"},
+          r = {"References"},
+          k = {"Signature"},
+        },
+        d = {
+          name = "Debug",
+          o = {"Step Over"},
+          s = {"Step Into"},
+          O = {"Step Out"},
+          c = {"Continue"},
+          b = {"Toggle Break Point"},
+          r = {"Debug Repl"},
+
+        },
+      },{ prefix = "<leader>" })
+
       local lspconfig = require'lspconfig'
       local dap = require'dap'
 

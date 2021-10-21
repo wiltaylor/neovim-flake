@@ -38,16 +38,32 @@ in {
       # Need to run make hexokinase in the plugin folder
       #(if cfg.colourPreview then vim-hexokinase else null)
 
-      (if cfg.whichKey then vim-which-key else null)
-      (if cfg.floaterm then vim-floaterm else null)
+      (if cfg.whichKey then nvim-which-key else null)
+      #(if cfg.floaterm then vim-floaterm else null)
     ];
 
     vim.nnoremap = {
-      "<leader>?" = "<cmd>WhichKey '<Space>'<cr>";
-      "<leader>`" = "<cmd>FloatermNew<cr>";
-      "<leader>`j" = "<cmd>FloatermNext<cr>";
-      "<leader>`k" = "<cmd>FloatermPrev><cr>";
+     # "<leader>`" = "<cmd>FloatermNew<cr>";
+    #  "<leader>`j" = "<cmd>FloatermNext<cr>";
+     # "<leader>`k" = "<cmd>FloatermPrev><cr>";
+     "<leader>wc" = "<cmd>close<cr>";
+     "<leader>wh" = "<cmd>split<cr>";
+     "<leader>wv" = "<cmd>vsplit<cr>";
     };
+
+    vim.luaConfigRC = ''
+      local wk = require("which-key")
+
+      wk.register({
+        w = {
+          name = "window",
+          c = { "Close Window"},
+          h = { "Split Horizontal" },
+          v = { "Split Vertical" },
+        },
+      }, { prefix = "<leader>" })
+     
+    '';
 
     vim.configRC = ''
       ${if cfg.indentGuide then ''

@@ -42,9 +42,9 @@
     vim-dadbod = { url = "github:tpope/vim-dadbod"; flake = false; };
     vim-dadbod-ui = { url = "github:kristijanhusak/vim-dadbod-ui"; flake = false; };
     vim-hexokinase = { url = "github:RRethy/vim-hexokinase"; flake = false; };
-    vim-which-key = { url = "github:liuchengxu/vim-which-key"; flake = false; };
     vim-test = { url = "github:vim-test/vim-test"; flake = false; };
     vim-floaterm = { url = "github:voldikss/vim-floaterm"; flake = false; };
+    nvim-which-key = { url = "github:folke/which-key.nvim"; flake = false; };
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -80,9 +80,9 @@
           "vim-dadbod"
           "vim-dadbod-ui"
           "vim-hexokinase"
-          "vim-which-key"
           "vim-test"
           "vim-floaterm"
+          "nvim-which-key"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;

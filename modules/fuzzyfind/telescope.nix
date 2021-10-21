@@ -18,11 +18,29 @@ in {
       plenary-nvim
     ];
 
+    vim.luaConfigRC = ''
+      local wk = require("which-key")
+
+      wk.register({
+        b = {
+          name = "Buffers",
+          l = { "List Buffers" },
+          c = { "Close buffer" },
+        },
+        p = {
+          name = "Project",
+          f = { "Find File"},
+          g = { "Grep "},
+        },
+      }, { prefix = "<leader>" })
+    '';
+
     vim.nnoremap = {
-      "<leader>ff" = "<cmd>Telescope find_files<cr>";
-      "<leader>fg" = "<cmd>Telescope live_grep<cr>";
-      "<leader>fb" = "<cmd>Telescope buffers<cr>";
-      "<leader>fh" = "<cmd>Telescope help_tags<cr>";
+      "<leader>pf" = "<cmd>Telescope find_files<cr>";
+      "<leader>pg" = "<cmd>Telescope live_grep<cr>";
+      "<leader>bl" = "<cmd>Telescope buffers<cr>";
+      "<leader>bc" = "<cmd>bdelete<cr>";
+      #"<leader>fh" = "<cmd>Telescope help_tags<cr>";
     };
 
 

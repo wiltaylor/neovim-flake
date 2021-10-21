@@ -397,6 +397,22 @@
         "type": "github"
       }
     },
+    "nvim-which-key": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628160854,
+        "narHash": "sha256-eoaBx7PzctB0rwmBW/ba9O9rcbyRCNvBafWXHUToZAI=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "b582c9d78f0d105041ed29ec3a8ee11d98ddfd50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
     "plenary-nvim": {
       "flake": false,
       "locked": {
@@ -473,6 +489,7 @@
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-web-devicons": "nvim-web-devicons",
+        "nvim-which-key": "nvim-which-key",
         "plenary-nvim": "plenary-nvim",
         "popup-nvim": "popup-nvim",
         "rnix-lsp": "rnix-lsp",
@@ -485,7 +502,6 @@
         "vim-nix": "vim-nix",
         "vim-startify": "vim-startify",
         "vim-test": "vim-test",
-        "vim-which-key": "vim-which-key",
         "vimagit": "vimagit"
       }
     },
@@ -645,22 +661,6 @@
       "original": {
         "owner": "vim-test",
         "repo": "vim-test",
-        "type": "github"
-      }
-    },
-    "vim-which-key": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1632305212,
-        "narHash": "sha256-+mU5VFWTzsyT7zCPfbZVEQS80lne/lqqxo995m+VTRY=",
-        "owner": "liuchengxu",
-        "repo": "vim-which-key",
-        "rev": "2c915b6de918c073fbd83809e51343651f00f9a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "liuchengxu",
-        "repo": "vim-which-key",
         "type": "github"
       }
     },

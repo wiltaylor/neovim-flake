@@ -132,7 +132,7 @@ in {
     matchCtrl = it: match "Ctrl-(.)(.*)" it;
     mapKeybinding = it:
       let groups = matchCtrl it; in if groups == null then it else "<C-${toUpper (head groups)}>${head (tail groups)}";
-    mapVimBinding = prefix: mappings: mapAttrsFlatten (name: value: "${prefix} ${mapKeybinding name} ${value}") (filterNonNull mappings);
+      mapVimBinding = prefix: mappings: mapAttrsFlatten (name: value: "${prefix} ${mapKeybinding name} ${value}") (filterNonNull mappings);
     
     nmap = mapVimBinding "nmap" config.vim.nmap;
     imap = mapVimBinding "imap" config.vim.imap;

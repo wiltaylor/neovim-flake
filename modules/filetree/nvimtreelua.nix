@@ -115,10 +115,20 @@ in {
     ];
 
     vim.nnoremap = {
-      "<leader>n" = "<cmd>NvimTreeToggle<cr>";
+      "<leader>fn" = "<cmd>NvimTreeToggle<cr>";
     };
 
     vim.luaConfigRC= ''
+      local wk = require("which-key")
+
+      wk.register({
+        f = {
+          name = "File Management",
+          n = {"File Tree"},
+        },
+      }, { prefix = "<leader>" })
+
+
       require'nvim-tree'.setup {
         disable_netrw       = ${toString cfg.disableNetRW},
         hijack_netrw        = true,
