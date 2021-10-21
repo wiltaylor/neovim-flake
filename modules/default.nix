@@ -10,10 +10,8 @@
     ./fuzzyfind
     ./filetree
     ./git
-    ./tabbar
     ./formating
     ./editor
-    ./database
     ./test
   ];
 }

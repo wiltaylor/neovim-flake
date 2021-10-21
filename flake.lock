@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "barbar-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1633397874,
-        "narHash": "sha256-cVrvJZNJp5R331T9Qdh8myGnrBCqyceE26WX/IblcE8=",
-        "owner": "romgrk",
-        "repo": "barbar.nvim",
-        "rev": "6e638309efcad2f308eb9c5eaccf6f62b794bbab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "romgrk",
-        "repo": "barbar.nvim",
-        "type": "github"
-      }
-    },
     "completion-nvim": {
       "flake": false,
       "locked": {
@@ -467,7 +451,6 @@
     },
     "root": {
       "inputs": {
-        "barbar-nvim": "barbar-nvim",
         "completion-nvim": "completion-nvim",
         "editorconfig-vim": "editorconfig-vim",
         "flake-utils": "flake-utils",
@@ -495,10 +478,6 @@
         "rnix-lsp": "rnix-lsp",
         "telescope-dap": "telescope-dap",
         "vim-cursorword": "vim-cursorword",
-        "vim-dadbod": "vim-dadbod",
-        "vim-dadbod-ui": "vim-dadbod-ui",
-        "vim-floaterm": "vim-floaterm",
-        "vim-hexokinase": "vim-hexokinase",
         "vim-nix": "vim-nix",
         "vim-startify": "vim-startify",
         "vim-test": "vim-test",
@@ -549,70 +528,6 @@
       "original": {
         "owner": "itchyny",
         "repo": "vim-cursorword",
-        "type": "github"
-      }
-    },
-    "vim-dadbod": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1632163467,
-        "narHash": "sha256-Uw8NzThBG/nBhyJoupQuHUCMS6eC/W5SM1QjnXwqx6w=",
-        "owner": "tpope",
-        "repo": "vim-dadbod",
-        "rev": "8fcde4c500440757f04e38c039005319476d1471",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tpope",
-        "repo": "vim-dadbod",
-        "type": "github"
-      }
-    },
-    "vim-dadbod-ui": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1630082895,
-        "narHash": "sha256-9kI7cli8nWr6Lx/7771wgLFQ6HBVFWyJJ4VRgr5nUag=",
-        "owner": "kristijanhusak",
-        "repo": "vim-dadbod-ui",
-        "rev": "5f2bd8499f1627c1938300256e6d9abb1ae4856d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kristijanhusak",
-        "repo": "vim-dadbod-ui",
-        "type": "github"
-      }
-    },
-    "vim-floaterm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1628666971,
-        "narHash": "sha256-9b6YQaVMPgg91dW8kgwEJHD2YqCAuO/1ZagL8E6OlLk=",
-        "owner": "voldikss",
-        "repo": "vim-floaterm",
-        "rev": "9716765f2af3415ad1f9091a50c334649a74e4c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "voldikss",
-        "repo": "vim-floaterm",
-        "type": "github"
-      }
-    },
-    "vim-hexokinase": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1619312119,
-        "narHash": "sha256-lp5ywNLkcH6l/9kTxzAsJRdZUSD6qp1ufCJmnQIwX/s=",
-        "owner": "RRethy",
-        "repo": "vim-hexokinase",
-        "rev": "62324b43ea858e268fb70665f7d012ae67690f43",
-        "type": "github"
-      },
-      "original": {
-        "owner": "RRethy",
-        "repo": "vim-hexokinase",
         "type": "github"
       }
     },

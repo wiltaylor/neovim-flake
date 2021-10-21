@@ -20,7 +20,7 @@ in {
     };
 
     vim.configRC = ''
-      let test#strategy = "${if config.vim.editor.floaterm then "floaterm" else "neovim"}"
+      let test#strategy = "neovim"
     '';
 
   };

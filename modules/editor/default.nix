@@ -16,17 +16,6 @@ in {
       default = true;
     };
 
-    whichKey = mkOption {
-      description = "Enable Which key";
-      type = types.bool;
-      default = true;
-    };
-
-    floaterm = mkOption {
-      description = "Enable floaterm instead of built in";
-      type = types.bool;
-      default = true;
-    };
   };
 
   config = {
@@ -38,14 +27,10 @@ in {
       # Need to run make hexokinase in the plugin folder
       #(if cfg.colourPreview then vim-hexokinase else null)
 
-      (if cfg.whichKey then nvim-which-key else null)
-      #(if cfg.floaterm then vim-floaterm else null)
+      nvim-which-key
     ];
 
     vim.nnoremap = {
-     # "<leader>`" = "<cmd>FloatermNew<cr>";
-    #  "<leader>`j" = "<cmd>FloatermNext<cr>";
-     # "<leader>`k" = "<cmd>FloatermPrev><cr>";
      "<leader>wc" = "<cmd>close<cr>";
      "<leader>wh" = "<cmd>split<cr>";
      "<leader>wv" = "<cmd>vsplit<cr>";
@@ -70,7 +55,6 @@ in {
         let g:indentLine_enabled = 1
         set list lcs=tab:\|\ 
       '' else ""}
-      "let g:Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'"
     '';
 
   };
