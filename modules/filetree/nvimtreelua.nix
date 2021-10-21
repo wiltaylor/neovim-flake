@@ -103,12 +103,6 @@ in {
       description = "compat empty folders trees into a single item";
       type = types.bool;
     };
-
-    lspDiagnostics = mkOption {
-      default = true;
-      description = "Shows lsp diagnostics in the tree";
-      type = types.bool;
-    };
   };
 
   config = mkIf cfg.enable (
@@ -124,23 +118,49 @@ in {
       "<leader>n" = "<cmd>NvimTreeToggle<cr>";
     };
 
+    vim.luaConfigRC= ''
+      require'nvim-tree'.setup {
+        disable_netrw       = ${toString cfg.disableNetRW},
+        hijack_netrw        = true,
+        open_on_setup       = false,
+        ignore_ft_on_setup  = {},
+        update_to_buf_dir   = {
+          enable = true,
+          auto_open = ${toString cfg.openOnDirectoryStart},
+        },
+        auto_close          = ${toString cfg.closeOnLastWindow},
+        open_on_tab         = false,
+        hijack_cursor       = false,
+        update_cwd          = false,
+        update_focused_file = {
+          enable      = false,
+          update_cwd  = false,
+          ignore_list = {}
+        },
+        system_open = {
+          cmd  = nil,
+          args = {}
+        },
+        view = {
+          width = ${toString cfg.treeWidth},
+          side = '${cfg.treeSide}',
+          auto_resize = false,
+          mappings = {
+            custom_only = false,
+            list = {}
+          }
+        }
+      }
+    '';
+
     vim.globals = {
-      "nvim_tree_side" = cfg.treeSide;
-      "nvim_tree_width" = cfg.treeWidth;
       "nvim_tree_ignore" = cfg.hideFiles;
       "nvim_tree_gitignore" = mkVimBool cfg.hideIgnoredGitFiles;
-      "nvim_tree_auto_open" = mkVimBool cfg.openOnDirectoryStart;
-      "nvim_tree_auto_close" = mkVimBool cfg.closeOnLastWindow;
-      "nvim_tree_auto_ignore_ft" = cfg.ignoreFileTypes;
       "nvim_tree_quit_on_open" = mkVimBool cfg.closeOnFileOpen;
-      "nvim_tree_follow" = mkVimBool cfg.followBufferFile;
       "nvim_tree_indent_markers" = mkVimBool cfg.indentMarkers;
       "nvim_tree_hide_dotfiles" = mkVimBool cfg.hideDotFiles;
-      "nvim_tree_tab_open" = mkVimBool cfg.openTreeOnNewTab;
-      "nvim_tree_disable_netrw" = mkVimBool cfg.disableNetRW;
       "nvim_tree_add_trailing" = mkVimBool cfg.trailingSlash;
       "nvim_tree_group_empty" = mkVimBool cfg.groupEmptyFolders;
-      "nvim_tree_lsp_diagnostics" = mkVimBool cfg.lspDiagnostics;
     };
   });
 }
