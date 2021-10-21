@@ -40,7 +40,6 @@ in {
       "<leader>pg" = "<cmd>Telescope live_grep<cr>";
       "<leader>bl" = "<cmd>Telescope buffers<cr>";
       "<leader>bc" = "<cmd>bdelete<cr>";
-      #"<leader>fh" = "<cmd>Telescope help_tags<cr>";
     };
 
 
