@@ -4,14 +4,14 @@ This is my personal neovim config. Feel free to take bits of it to build your ow
 As this is my personal config I am bound to change it a lot so I recommend forking rather then pointing to
 this config.
 
+All thanks to Wil Taylor for providing the basis for this config:
+
+https://github.com/wiltaylor/neovim-flake
+
 # How to use
 Clone the repo and run the following from the directory:
 ```
 nix run .#
-```
-or
-```
-nix run github:wiltaylor/neovim-flake#.
 ```
 
 # How to update plugins

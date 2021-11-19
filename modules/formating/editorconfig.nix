@@ -8,7 +8,7 @@ let
 in {
 
   options.vim.formatting.editorConfig = {
-    enable = mkEnableOption "Enable barbar";
+    enable = mkEnableOption "Enable editorconfig";
 
   };
 
