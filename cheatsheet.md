@@ -119,7 +119,7 @@ Leader Key is Space
  - `dd` - delete line
  - `dw` - Delete word (from current cursor to next start of word)
  - `d$` - Delete till end of line
- - `x` - delete charecter
+ - `x` - delete character
 
 # Indent text
  - `<<` - Move line left
