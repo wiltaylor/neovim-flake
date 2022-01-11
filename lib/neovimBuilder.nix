@@ -1,6 +1,4 @@
-{ pkgs, lib ? pkgs.lib, ...}:
-
-{ config }:
+{ pkgs, lib ? pkgs.lib, config, ...}:
 let
   neovimPlugins = pkgs.neovimPlugins;
 

@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
 
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
+
+
+    rnix-lsp = { url = "github:nix-community/rnix-lsp"; };
 
     # Vim plugins
     gruvbox = { url = "github:morhetz/gruvbox"; flake = false; };
@@ -31,7 +32,6 @@
     nvim-lightbulb = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
     nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false;};
     nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false;};
-    rnix-lsp.url = github:nix-community/rnix-lsp;
     editorconfig-vim = { url = "github:editorconfig/editorconfig-vim"; flake = false; };
     indentline = { url = "github:Yggdroot/indentLine"; flake = false; };
     indent-blankline-nvim = { url = "github:lukas-reineke/indent-blankline.nvim"; flake = false; };
@@ -42,116 +42,136 @@
     nvim-which-key = { url = "github:folke/which-key.nvim"; flake = false; };
   };
 
-  outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        plugins = [
-          "gruvbox"
-          "nord-vim"
-          "vim-startify"
-          "lightline-vim"
-          "nvim-lspconfig"
-          "completion-nvim"
-          "vim-nix"
-          "nvim-dap"
-          "nvim-telescope"
-          "popup-nvim"
-          "plenary-nvim"
-          "nvim-web-devicons"
-          "nvim-tree-lua"
-          "telescope-dap"
-          "vimagit"
-          "fugitive" 
-          "nvim-lightbulb"
-          "nvim-treesitter"
-          "nvim-treesitter-context"
-          "editorconfig-vim"
-          "indent-blankline-nvim"
-          "indentline"
-          "nvim-blame-line"
-          "nvim-dap-virtual-text"
-          "vim-cursorword"
-          "vim-test"
-          "nvim-which-key"
-        ];
+  outputs = { self, nixpkgs, neovim, rnix-lsp, ... }@inputs:
+  let
+    plugins = [
+      "gruvbox"
+      "nord-vim"
+      "vim-startify"
+      "lightline-vim"
+      "nvim-lspconfig"
+      "completion-nvim"
+      "vim-nix"
+      "nvim-dap"
+      "nvim-telescope"
+      "popup-nvim"
+      "plenary-nvim"
+      "nvim-web-devicons"
+      "nvim-tree-lua"
+      "telescope-dap"
+      "vimagit"
+      "fugitive" 
+      "nvim-lightbulb"
+      "nvim-treesitter"
+      "nvim-treesitter-context"
+      "editorconfig-vim"
+      "indent-blankline-nvim"
+      "indentline"
+      "nvim-blame-line"
+      "nvim-dap-virtual-text"
+      "vim-cursorword"
+      "vim-test"
+      "nvim-which-key"
+    ];
 
-        pluginOverlay = lib.buildPluginOverlay;
+    util = import ./lib/util.nix;
 
-        pkgs = import nixpkgs {
-          inherit system;
-          config = { allowUnfree = true; };
-          overlays = [
-            pluginOverlay
-            (final: prev: {
-              neovim-nightly = neovim.defaultPackage.${system};
-              rnix-lsp = inputs.rnix-lsp.defaultPackage.${system};
-            })
-          ];
-        };
-
-        lib = import ./lib { inherit pkgs inputs plugins; };
-
-        neovimBuilder = lib.neovimBuilder;
-      in
-      rec {
-        inherit neovimBuilder pkgs;
-
-        apps = {
-          nvim = {
-            type = "app";
-            program = "${defaultPackage}/bin/nvim";
-          };
-        };
-
-        defaultApp = apps.nvim;
-
-        defaultPackage = packages.neovimWT;
-
-
-        overlay = (self: super: {
-          inherit neovimBuilder;
-          neovimWT = packages.neovimWT;
-	  neovimPlugins = pkgs.neovimPlugins;
-        });
-
-        packages.neovimWT = neovimBuilder {
-          config = {
-	          vim.viAlias = true;
-	          vim.vimAlias = true;
-            vim.dashboard.startify.enable = true;
-            vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
-            vim.theme.nord.enable = true;
-            vim.disableArrows = true;
-            vim.statusline.lightline.enable = true;
-            vim.lsp.enable = true;
-            vim.lsp.bash = true;
-            vim.lsp.go = true;
-            vim.lsp.nix = true;
-            vim.lsp.python = true;
-            vim.lsp.ruby = true;
-            vim.lsp.rust = true;
-            vim.lsp.terraform = true;
-            vim.lsp.typescript = true;
-            vim.lsp.vimscript = true;
-            vim.lsp.yaml = true;
-            vim.lsp.docker = true;
-            vim.lsp.tex = true;
-            vim.lsp.css = true;
-            vim.lsp.html = true;
-            vim.lsp.json = true;
-            vim.lsp.clang = true;
-            vim.lsp.cmake = false; # Currently broken
-            vim.lsp.lightbulb = true;
-            vim.lsp.variableDebugPreviews = true;
-            vim.fuzzyfind.telescope.enable = true;
-            vim.filetree.nvimTreeLua.enable = true;
-            vim.git.enable = true;
-            vim.formatting.editorConfig.enable = true;
-            vim.editor.indentGuide = true;
-            vim.editor.underlineCurrentWord = true;
-            vim.test.enable = true;
-
-          };
-        };
+    externalBitsOverlay = util.mkOverlays {
+      inherit allPkgs; 
+      overlayFunc = sys: pkgs: (top: last: {
+        rnix-lsp = rnix-lsp.defaultPackage.${sys};
+        neovim-nightly = neovim.defaultPackage.${sys};
       });
+    };
+
+    pluginOverlay = util.mkOverlays {
+      inherit allPkgs; 
+      overlayFunc = sys: pkgs: (top: last: let
+        buildPlug = name: top.vimUtils.buildVimPluginFrom2Nix {
+          pname = name;
+          version = "master";
+          src = builtins.getAttr name inputs;
+        };
+      in {
+        neovimPlugins = builtins.listToAttrs (map (name: { inherit name; value = buildPlug name; }) plugins);
+      });
+    };
+
+    allPkgs = util.mkPkgs { 
+      inherit nixpkgs; 
+      cfg = { allowUnfree = true; };
+      overlays = [
+        pluginOverlay
+        externalBitsOverlay
+      ];
+    };
+
+    lib = import ./lib;
+
+  in {
+    apps = util.withDefaultSystems (sys:
+    {
+      nvim = {
+        type = "app";
+        program = "${self.defaultPackage."${sys}"}/bin/nvim";
+      };
+    });
+
+    defaultApp = util.withDefaultSystems (sys: {
+      type = "app";
+      program = "${self.defaultPackage."${sys}"}/bin/nvim";
+    });
+
+    defaultPackage = util.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
+
+    overlay = util.mkOverlays {
+      inherit allPkgs;
+      overlayFunc = sys: pkgs: (top: last: {
+        neovimWT = self.packages."${sys}".neovimWT;
+        neovimPlugins = pkgs.neovimPlugins;
+      });
+    };
+
+    packages = util.withDefaultSystems (sys: {
+      neovimWT = lib.neovimBuilder {
+        pkgs = allPkgs."${sys}";
+        config = {
+          vim.viAlias = true;
+          vim.vimAlias = true;
+          vim.dashboard.startify.enable = true;
+          vim.dashboard.startify.customHeader = [ "NIXOS NEOVIM CONFIG" ];
+          vim.theme.nord.enable = true;
+          vim.disableArrows = true;
+          vim.statusline.lightline.enable = true;
+          vim.lsp.enable = true;
+          vim.lsp.bash = true;
+          vim.lsp.go = true;
+          vim.lsp.nix = true;
+          vim.lsp.python = true;
+          vim.lsp.ruby = true;
+          vim.lsp.rust = true;
+          vim.lsp.terraform = true;
+          vim.lsp.typescript = true;
+          vim.lsp.vimscript = true;
+          vim.lsp.yaml = true;
+          vim.lsp.docker = true;
+          vim.lsp.tex = true;
+          vim.lsp.css = true;
+          vim.lsp.html = true;
+          vim.lsp.json = true;
+          vim.lsp.clang = true;
+          vim.lsp.cmake = false; # Currently broken
+          vim.lsp.lightbulb = true;
+          vim.lsp.variableDebugPreviews = true;
+          vim.fuzzyfind.telescope.enable = true;
+          vim.filetree.nvimTreeLua.enable = true;
+          vim.git.enable = true;
+          vim.formatting.editorConfig.enable = true;
+          vim.editor.indentGuide = true;
+          vim.editor.underlineCurrentWord = true;
+          vim.test.enable = true;
+        };
+      };
+    });
+  };
 }
