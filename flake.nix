@@ -159,7 +159,7 @@
 
     overlay = top: last: {
       neovimWT = lib.neovimBuilder last;
-      neovimPlugins = last.neovimPlugins;
+      neovimPlugins = allPkgs."${top.system}".neovimPlugins;
     };
 
     packages = lib.withDefaultSystems (sys: {
