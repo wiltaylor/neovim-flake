@@ -59,6 +59,8 @@ in {
       ${if cfg.variableDebugPreviews then ''
         let g:dap_virtual_text = v:true
       '' else ""}
+
+      let g:completion_enable_auto_popup = 2
     '';
 
     vim.nnoremap = {

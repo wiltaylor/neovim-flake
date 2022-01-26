@@ -106,33 +106,8 @@
 
     lib = import ./lib;
 
-  in {
-    apps = lib.withDefaultSystems (sys:
-    {
-      nvim = {
-        type = "app";
-        program = "${self.defaultPackage."${sys}"}/bin/nvim";
-      };
-    });
-
-    defaultApp = lib.withDefaultSystems (sys: {
-      type = "app";
-      program = "${self.defaultPackage."${sys}"}/bin/nvim";
-    });
-
-    defaultPackage = lib.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
-
-    overlay = lib.mkOverlays {
-      inherit allPkgs;
-      overlayFunc = sys: pkgs: (top: last: {
-        neovimWT = self.packages."${sys}".neovimWT;
-        neovimPlugins = pkgs.neovimPlugins;
-      });
-    };
-
-    packages = lib.withDefaultSystems (sys: {
-      neovimWT = lib.neovimBuilder {
-        pkgs = allPkgs."${sys}";
+    mkNeoVimPkg = pkgs: lib.neovimBuilder {
+        inherit pkgs;
         config = {
           vim.viAlias = true;
           vim.vimAlias = true;
@@ -170,6 +145,31 @@
           vim.test.enable = true;
         };
       };
+
+  in {
+
+    apps = lib.withDefaultSystems (sys:
+    {
+      nvim = {
+        type = "app";
+        program = "${self.defaultPackage."${sys}"}/bin/nvim";
+      };
+    });
+
+    defaultApp = lib.withDefaultSystems (sys: {
+      type = "app";
+      program = "${self.defaultPackage."${sys}"}/bin/nvim";
+    });
+
+    defaultPackage = lib.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
+
+    overlay = top: last: {
+      neovimWT = lib.neovimBuilder top;
+      neovimPlugins = pkgs.neovimPlugins;
+    };
+
+    packages = lib.withDefaultSystems (sys: {
+      neovimWT = mkNeoVimPkg allPkgs."${sys}";
     });
   };
 }

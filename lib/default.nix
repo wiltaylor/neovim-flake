@@ -71,10 +71,6 @@ rec {
     config = cfg; 
     overlays = map (m: m."${sys}") overlays; 
   });
-  
-  mkOverlays = { allPkgs, systems ? defaultSystems, overlayFunc} : withSystems systems (sys: 
-    let pkgs = allPkgs."${sys}"; 
-    in overlayFunc sys pkgs);
 
   withDefaultSystems = withSystems defaultSystems;
   withSystems = systems: f: foldl' (cur: nxt:
