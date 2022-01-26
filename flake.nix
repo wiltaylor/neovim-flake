@@ -158,7 +158,7 @@
     defaultPackage = lib.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
 
     overlay = top: last: {
-      neovimWT = lib.neovimBuilder last;
+      neovimWT = lib.neovimBuilder allPkgs."${top.system}";
       neovimPlugins = allPkgs."${top.system}".neovimPlugins;
     };
 
