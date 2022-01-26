@@ -69,7 +69,7 @@ rec {
   import nixpkgs { 
     system = sys; 
     config = cfg; 
-    overlays = map (m: m."${sys}") overlays; 
+    overlays = overlays; 
   });
 
   withDefaultSystems = withSystems defaultSystems;

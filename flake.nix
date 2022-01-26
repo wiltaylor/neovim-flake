@@ -74,27 +74,21 @@
       "nvim-which-key"
     ];
 
-    externalBitsOverlay = lib.mkOverlays {
-      inherit allPkgs; 
-      overlayFunc = sys: pkgs: (top: last: {
-        rnix-lsp = rnix-lsp.defaultPackage.${sys};
-        neovim-nightly = neovim.defaultPackage.${sys};
-      });
+    externalBitsOverlay = top: last: {
+      rnix-lsp = rnix-lsp.defaultPackage.${top.system};
+      neovim-nightly = neovim.defaultPackage.${top.system};
     };
 
-    pluginOverlay = lib.mkOverlays {
-      inherit allPkgs; 
-      overlayFunc = sys: pkgs: (top: last: let
-        buildPlug = name: top.vimUtils.buildVimPluginFrom2Nix {
-          pname = name;
-          version = "master";
-          src = builtins.getAttr name inputs;
-        };
-      in {
-        neovimPlugins = builtins.listToAttrs (map (name: { inherit name; value = buildPlug name; }) plugins);
-      });
+    pluginOverlay = top: last: let
+      buildPlug = name: top.vimUtils.buildVimPluginFrom2Nix {
+        pname = name;
+        version = "master";
+        src = builtins.getAttr name inputs;
+      };
+    in {
+      neovimPlugins = builtins.listToAttrs (map (name: { inherit name; value = buildPlug name; }) plugins);
     };
-
+    
     allPkgs = lib.mkPkgs { 
       inherit nixpkgs; 
       cfg = { allowUnfree = true; };
@@ -164,8 +158,8 @@
     defaultPackage = lib.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
 
     overlay = top: last: {
-      neovimWT = lib.neovimBuilder top;
-      neovimPlugins = pkgs.neovimPlugins;
+      neovimWT = lib.neovimBuilder last;
+      neovimPlugins = last.neovimPlugins;
     };
 
     packages = lib.withDefaultSystems (sys: {
