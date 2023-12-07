@@ -35,6 +35,8 @@ in {
             nvim-lspconfig
             nvim-lsp-smag
             lsp_signature
+			null-ls
+			gitsigns
 
             nvim-dap
             nvim-telescope

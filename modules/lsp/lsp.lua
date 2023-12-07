@@ -1,6 +1,7 @@
 local wk		= require("which-key")
 local lspconfig = require'lspconfig'
 local dap       = require'dap'
+local null_ls	= require("null-ls")
 
 --Tree sitter config
 require('nvim-treesitter.configs').setup {
@@ -90,6 +91,30 @@ vim.diagnostic.config({
 		source = 'any',
 		border = 'rounded',
 		focusable = false,
+	}
+})
+
+null_ls.setup({
+	sources = {
+		null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.code_actions.gomodifytags,
+
+		null_ls.builtins.code_actions.shellcheck,               -- https://www.shellcheck.net/
+
+		null_ls.builtins.diagnostics.codespell.with({
+			extra_args = {
+				"-I",
+				vim.fn.expand("~/.config/nvim/codespell-ignore"),
+			},
+		}),
+
+		null_ls.builtins.diagnostics.staticcheck,				-- https://github.com/dominikh/go-tools
+		null_ls.builtins.formatting.fixjson,                    -- https://github.com/rhysd/fixjson
+		null_ls.builtins.formatting.goimports_reviser,          -- https://pkg.go.dev/github.com/incu6us/goimports-reviser
+		null_ls.builtins.formatting.markdown_toc,               -- https://github.com/jonschlinkert/markdown-toc
+		null_ls.builtins.formatting.mdformat,                   -- https://github.com/executablebooks/mdformat
+		null_ls.builtins.formatting.shfmt,                      -- https://github.com/mvdan/sh
+		null_ls.builtins.formatting.yamlfmt                     -- https://github.com/google/yamlfmt
 	}
 })
 
