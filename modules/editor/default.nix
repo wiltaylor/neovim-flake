@@ -21,11 +21,7 @@ in {
   config = {
     vim.startPlugins = with pkgs.neovimPlugins; [ 
       (if cfg.indentGuide then indent-blankline-nvim else null)
-      (if cfg.indentGuide then indentline else null)
       (if cfg.underlineCurrentWord then vim-cursorword else null)
-      # Currently broken. Need to add a build step
-      # Need to run make hexokinase in the plugin folder
-      #(if cfg.colourPreview then vim-hexokinase else null)
 
       nvim-which-key
     ];
@@ -52,7 +48,6 @@ in {
 
     vim.configRC = ''
       ${if cfg.indentGuide then ''
-        let g:indentLine_enabled = 1
         set list lcs=tab:\|\ 
       '' else ""}
     '';
