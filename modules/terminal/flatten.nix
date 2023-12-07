@@ -17,7 +17,7 @@ in {
 		vim.luaConfigRC = ''
             require("flatten").setup({
             	window = {
-            		open = "vsplit",
+            		open = "alternate",
             		focus = "first",
             	}
             })
