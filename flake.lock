@@ -558,6 +558,38 @@
         "type": "github"
       }
     },
+    "nvim-telescope-dap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694358319,
+        "narHash": "sha256-JZRbO+wMZXzzLwEGeRK9S0WldAFrhxtiMwAGsXmdQbk=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-dap.nvim",
+        "rev": "4e2d5efb92062f0b865fe59b200b5ed7793833bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-dap.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-telescope-emoji": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670503796,
+        "narHash": "sha256-8V3MTporANLtZkH0RuLviWlgMmR6fay0WmZ3ZOQzpKI=",
+        "owner": "xiyaowong",
+        "repo": "telescope-emoji.nvim",
+        "rev": "86248d97be84a1ce83f0541500ef9edc99ea2aa1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xiyaowong",
+        "repo": "telescope-emoji.nvim",
+        "type": "github"
+      }
+    },
     "nvim-tree-lua": {
       "flake": false,
       "locked": {
@@ -739,6 +771,8 @@
         "nvim-navic": "nvim-navic",
         "nvim-osc52": "nvim-osc52",
         "nvim-telescope": "nvim-telescope",
+        "nvim-telescope-dap": "nvim-telescope-dap",
+        "nvim-telescope-emoji": "nvim-telescope-emoji",
         "nvim-tree-lua": "nvim-tree-lua",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
@@ -749,8 +783,6 @@
         "popup-nvim": "popup-nvim",
         "rnix-lsp": "rnix-lsp",
         "scope": "scope",
-        "telescope-dap": "telescope-dap",
-        "telescope-emoji": "telescope-emoji",
         "vim-cursorword": "vim-cursorword",
         "vim-go-coverage": "vim-go-coverage",
         "vim-nix": "vim-nix",
@@ -788,38 +820,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "telescope-dap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1694358319,
-        "narHash": "sha256-JZRbO+wMZXzzLwEGeRK9S0WldAFrhxtiMwAGsXmdQbk=",
-        "owner": "nvim-telescope",
-        "repo": "telescope-dap.nvim",
-        "rev": "4e2d5efb92062f0b865fe59b200b5ed7793833bf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "repo": "telescope-dap.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-emoji": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670503796,
-        "narHash": "sha256-8V3MTporANLtZkH0RuLviWlgMmR6fay0WmZ3ZOQzpKI=",
-        "owner": "xiyaowong",
-        "repo": "telescope-emoji.nvim",
-        "rev": "86248d97be84a1ce83f0541500ef9edc99ea2aa1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "xiyaowong",
-        "repo": "telescope-emoji.nvim",
         "type": "github"
       }
     },

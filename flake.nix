@@ -22,7 +22,8 @@
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
 		nvim-dap					= { url = "github:mfussenegger/nvim-dap";						flake = false; };
 		nvim-telescope				= { url = "github:nvim-telescope/telescope.nvim";				flake = false; };
-		telescope-dap				= { url = "github:nvim-telescope/telescope-dap.nvim";			flake = false; };
+		nvim-telescope-emoji		= { url = "github:xiyaowong/telescope-emoji.nvim";				flake = false; };
+		nvim-telescope-dap			= { url = "github:nvim-telescope/telescope-dap.nvim";			flake = false; };
 		popup-nvim					= { url = "github:nvim-lua/popup.nvim";							flake = false; };
 		plenary-nvim				= { url = "github:nvim-lua/plenary.nvim";						flake = false; };
 		nvim-web-devicons			= { url = "github:kyazdani42/nvim-web-devicons";				flake = false; };
@@ -43,7 +44,6 @@
 
 
 # My additions
-		telescope-emoji				= { url = "github:xiyaowong/telescope-emoji.nvim";				flake = false; };
 
 		nvim-osc52					= { url = "github:ojroques/nvim-osc52";							flake = false; };
 		nvim-xenon					= { url = "github:minego/nvim-xenon";							flake = false; };
@@ -82,11 +82,12 @@
 			"vim-nix"
 			"nvim-dap"
 			"nvim-telescope"
+			"nvim-telescope-dap"
+			"nvim-telescope-emoji"
 			"popup-nvim"
 			"plenary-nvim"
 			"nvim-web-devicons"
 			"nvim-tree-lua"
-			"telescope-dap"
 			"vimagit"
 			"fugitive" 
 			"nvim-lightbulb"

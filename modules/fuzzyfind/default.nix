@@ -1,6 +1,6 @@
 {pkgs, lib, config, ...}:
 {
-  imports = [
-    ./telescope.nix
-  ];
+	imports = [
+		./telescope.nix
+	];
 }

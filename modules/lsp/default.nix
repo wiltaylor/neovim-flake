@@ -34,7 +34,8 @@ in {
             nvim-lspconfig 
             completion-nvim 
             nvim-dap
-            telescope-dap
+            nvim-telescope
+            nvim-telescope-dap
 
 			pkgs.vimPlugins.nvim-treesitter.withAllGrammars
             nvim-treesitter-context
