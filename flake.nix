@@ -41,11 +41,11 @@
 		nvim-navic					= { url = "github:SmiteshP/nvim-navic";							flake = false; };
 		nvim-treesitter-context		= { url = "github:nvim-treesitter/nvim-treesitter-context";		flake = false; };
 		nvim-treesitter-textobjects	= { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
+		nvim-osc52					= { url = "github:ojroques/nvim-osc52";							flake = false; };
 
 
 # My additions
 
-		nvim-osc52					= { url = "github:ojroques/nvim-osc52";							flake = false; };
 		nvim-xenon					= { url = "github:minego/nvim-xenon";							flake = false; };
 		nvim-dap-ui					= { url = "github:rcarriga/nvim-dap-ui";						flake = false; };
 
@@ -101,6 +101,7 @@
 			"vim-test"
 			"nvim-which-key"
 			"nvim-navic"
+			"nvim-osc52"
 		];
 
 		externalPackages = top: last: {
@@ -144,6 +145,8 @@
 
 				viAlias							= true;
 				vimAlias						= true;
+				useSystemClipboard				= true;
+				mapLeaderSpace					= false;
 				dashboard.startify.enable		= true;
 				dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
 				theme.nord.enable				= true;
