@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "completion-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1634068787,
-        "narHash": "sha256-6um9dye0MLY8K8AAsDksCpy1KbMNSdMuj+zKteSAxR4=",
-        "owner": "nvim-lua",
-        "repo": "completion-nvim",
-        "rev": "87b0f86da3dffef63b42845049c648b5d90f1c4d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-lua",
-        "repo": "completion-nvim",
-        "type": "github"
-      }
-    },
     "editorconfig-vim": {
       "flake": false,
       "locked": {
@@ -756,7 +740,6 @@
     },
     "root": {
       "inputs": {
-        "completion-nvim": "completion-nvim",
         "editorconfig-vim": "editorconfig-vim",
         "flatten": "flatten",
         "fugitive": "fugitive",

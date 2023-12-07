@@ -23,11 +23,13 @@
 		nvim-blame-line				= { url = "github:tveskag/nvim-blame-line";						flake = false; };
 		neogit						= { url = "github:NeogitOrg/neogit";							flake = false; };
 
+        # Terminal Plugins
+		flatten						= { url = "github:willothy/flatten.nvim";						flake = false; };
+
 		vim-startify				= { url = "github:mhinz/vim-startify";							flake = false; };
 		lightline-vim				= { url = "github:itchyny/lightline.vim";						flake = false; };
 		lualine-nvim				= { url = "github:nvim-lualine/lualine.nvim";					flake = false; };
 		nvim-lspconfig				= { url = "github:neovim/nvim-lspconfig";						flake = false; };
-		completion-nvim				= { url = "github:nvim-lua/completion-nvim";					flake = false; };
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
 		nvim-dap					= { url = "github:mfussenegger/nvim-dap";						flake = false; };
 		nvim-telescope				= { url = "github:nvim-telescope/telescope.nvim";				flake = false; };
@@ -57,7 +59,6 @@
 		neotest						= { url = "github:nvim-neotest/neotest";						flake = false; };
 		neotest-go					= { url = "github:nvim-neotest/neotest-go";						flake = false; };
 
-		flatten						= { url = "github:willothy/flatten.nvim";						flake = false; };
 		gitlab						= { url = "github:harrisoncramer/gitlab.nvim";					flake = false; };
 		nvim-dap-go					= { url = "github:leoluz/nvim-dap-go";							flake = false; };
 		goimpl						= { url = "github:edolphin-ydf/goimpl.nvim";					flake = false; };
@@ -84,6 +85,9 @@
 			"fugitive-gitlab"
 			"nvim-blame-line"
 			"neogit"
+
+            "flatten"
+
 
 			"vim-startify"
 			"lightline-vim"
@@ -155,40 +159,64 @@
 				vimAlias						= true;
 				useSystemClipboard				= true;
 				mapLeaderSpace					= false;
-				dashboard.startify.enable		= true;
-				dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
 
-				theme.xenon.enable				= true;
-				theme.nord.enable				= false;
-				theme.gruvbox.enable			= false;
+				terminal = {
+					flatten.enable				= true;
+				};
+
+				dashboard = {
+					startify.enable				= true;
+					startify.customHeader		= [ "MICAH'S NEOVIM" ];
+				};
+
+				tabWidth						= 4;
+				autoIndent						= false;
+
+				theme = {
+					xenon.enable				= true;
+					nord.enable					= false;
+					gruvbox.enable				= false;
+				};
 
 				disableArrows					= true;
-				statusline.lightline.enable		= false;
-				statusline.lualine.enable		= true;
-				lsp.enable						= true;
-				lsp.bash						= true;
-				lsp.go							= true;
-				lsp.nix							= true;
-				lsp.python						= true;
-				lsp.ruby						= true;
-				lsp.rust						= true;
-				lsp.terraform					= true;
-				lsp.typescript					= true;
-				lsp.vimscript					= true;
-				lsp.yaml						= true;
-				lsp.docker						= true;
-				lsp.tex							= true;
-				lsp.css							= true;
-				lsp.html						= true;
-				lsp.json						= true;
-				lsp.clang						= true;
-				lsp.lightbulb					= true;
-				lsp.variableDebugPreviews		= true;
+
+				statusline = {
+					lightline.enable			= false;
+					lualine.enable				= true;
+				};
+
+				lsp = {
+					enable						= true;
+					bash						= true;
+					go							= true;
+					nix							= true;
+					python						= true;
+					ruby						= true;
+					rust						= true;
+					terraform					= true;
+					typescript					= true;
+					vimscript					= true;
+					yaml						= true;
+					docker						= true;
+					tex							= true;
+					css							= true;
+					html						= true;
+					json						= true;
+					clang						= true;
+					lightbulb					= true;
+					variableDebugPreviews		= true;
+				};
 				fuzzyfind.telescope.enable		= true;
+
 				git.enable						= true;
+				git.blameLine		            = false;
+
 				formatting.editorConfig.enable	= true;
-				editor.indentGuide				= true;
-				editor.underlineCurrentWord		= true;
+
+				editor = {
+					indentGuide					= false;
+					underlineCurrentWord		= true;
+				};
 				test.enable						= true;
 			};
 		};

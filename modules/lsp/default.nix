@@ -6,33 +6,32 @@ let
     cfg = config.vim.lsp;
 in {
     options.vim.lsp = {
-        enable      = mkEnableOption "Enable lsp support";
+        enable      = mkEnableOption "LSP support";
 
-        bash        = mkEnableOption "Enable Bash Language Support";
-        go          = mkEnableOption "Enable Go Language Support";
-        nix         = mkEnableOption "Enable NIX Language Support";
-        python      = mkEnableOption "Enable Python Support";
-        ruby        = mkEnableOption "Enable Ruby Support";
-        rust        = mkEnableOption "Enable Rust Support";
-        terraform   = mkEnableOption "Enable Terraform Support";
-        typescript  = mkEnableOption "Enable Typescript/Javascript Support";
-        vimscript   = mkEnableOption "Enable Vim Script Support";
-        yaml        = mkEnableOption "Enable yaml support";
-        docker      = mkEnableOption "Enable docker support";
-        tex         = mkEnableOption "Enable tex support";
-        css         = mkEnableOption "Enable css support";
-        html        = mkEnableOption "Enable html support";
-        clang       = mkEnableOption "Enable C/C++ with clang";
-        json        = mkEnableOption "Enable JSON";
+        bash        = mkEnableOption "Bash Language Support";
+        go          = mkEnableOption "Go Language Support";
+        nix         = mkEnableOption "NIX Language Support";
+        python      = mkEnableOption "Python Support";
+        ruby        = mkEnableOption "Ruby Support";
+        rust        = mkEnableOption "Rust Support";
+        terraform   = mkEnableOption "Terraform Support";
+        typescript  = mkEnableOption "Typescript/Javascript Support";
+        vimscript   = mkEnableOption "Vim Script Support";
+        yaml        = mkEnableOption "yaml support";
+        docker      = mkEnableOption "docker support";
+        tex         = mkEnableOption "tex support";
+        css         = mkEnableOption "css support";
+        html        = mkEnableOption "html support";
+        clang       = mkEnableOption "C/C++ with clang";
+        json        = mkEnableOption "JSON";
 
-        lightbulb   = mkEnableOption "Enable Light Bulb";
+        lightbulb   = mkEnableOption "Light Bulb";
         variableDebugPreviews = mkEnableOption "Enable variable previews";
     };
 
     config = mkIf cfg.enable {
         vim.startPlugins = with pkgs.neovimPlugins; [ 
             nvim-lspconfig 
-            completion-nvim 
             nvim-dap
             nvim-telescope
             nvim-telescope-dap
@@ -47,16 +46,9 @@ in {
         ];
 
         vim.configRC = ''
-            " Use <Tab> and <S-Tab> to navigate through popup menu
-            inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-            inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-            
-            " Set completeopt to have a better completion experience
-            set completeopt=menuone,noinsert,noselect
-            
             ${if cfg.variableDebugPreviews then "let g:dap_virtual_text = v:true" else ""}
             
-            let g:completion_enable_auto_popup = 2
+            set completeopt=menuone,longest,noselect,preview
             '';
 
         vim.nnoremap = {
@@ -122,7 +114,6 @@ in {
 
             ${if cfg.bash then ''
             lspconfig.bashls.setup {
-                on_attach                   = require'completion'.on_attach;
                 cmd = {
                     "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server",
                     "start"
@@ -132,7 +123,6 @@ in {
 
             ${if cfg.go then ''
             lspconfig.gopls.setup {
-                on_attach                   = require'completion'.on_attach;
                 cmd = {
                     "${pkgs.gopls}/bin/gopls"
                 }
@@ -187,63 +177,54 @@ in {
 
             ${if cfg.nix then ''
             lspconfig.rnix.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = { "${pkgs.rnix-lsp}/bin/rnix-lsp" }
             }
             '' else ""}
 
             ${if cfg.ruby then ''
             lspconfig.solargraph.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.solargraph}/bin/solargraph', 'stdio' }
             }
             '' else ""}
 
             ${if cfg.rust then ''
             lspconfig.rust_analyzer.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.rust-analyzer}/bin/rust-analyzer'}
             }
             '' else ""}
 
             ${if cfg.terraform then ''
             lspconfig.terraformls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.terraform-ls}/bin/terraform-ls', 'serve' }
             }
             '' else ""}
 
             ${if cfg.typescript then ''
             lspconfig.tsserver.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server', '--stdio' }
             }
             '' else ""}
 
             ${if cfg.vimscript then ''
             lspconfig.vimls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.vim-language-server}/bin/vim-language-server', '--stdio' }
             }
             '' else ""}
 
             ${if cfg.yaml then ''
             lspconfig.vimls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.yaml-language-server}/bin/yaml-language-server', '--stdio' }
             }
             '' else ""}
 
             ${if cfg.docker then ''
             lspconfig.dockerls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.dockerfile-language-server-nodejs}/bin/docker-language-server', '--stdio' }
             }
             '' else ""}
 
             ${if cfg.css then ''
             lspconfig.cssls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver', '--stdio' };
                 filetypes       = { "css", "scss", "less" }; 
             }
@@ -251,7 +232,6 @@ in {
 
             ${if cfg.html then ''
             lspconfig.html.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver', '--stdio' };
                 filetypes       = { "html", "css", "javascript" }; 
             }
@@ -259,7 +239,6 @@ in {
 
             ${if cfg.json then ''
             lspconfig.jsonls.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver', '--stdio' };
                 filetypes       = { "html", "css", "javascript" }; 
             }
@@ -267,14 +246,12 @@ in {
 
             ${if cfg.tex then ''
             lspconfig.texlab.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.texlab}/bin/texlab'}
             }
             '' else ""}
 
             ${if cfg.clang then ''
             lspconfig.clangd.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {'${pkgs.clang-tools}/bin/clangd', '--background-index'};
                 filetypes       = { "c", "cpp", "objc", "objcpp", "m" };
             }
@@ -282,7 +259,6 @@ in {
 
             ${if cfg.python then ''
             lspconfig.pyright.setup{
-                on_attach       = require'completion'.on_attach;
                 cmd             = {"${pkgs.nodePackages.pyright}/bin/pyright-langserver", "--stdio"}
             }
             '' else ""}

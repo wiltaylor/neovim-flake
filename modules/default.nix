@@ -12,5 +12,6 @@
 		./formatting
 		./editor
 		./test
+		./terminal
 	];
 }

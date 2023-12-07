@@ -24,11 +24,12 @@ in {
 
     config = {
         vim.startPlugins = with pkgs.neovimPlugins; [
-            (if cfg.indentGuide then indent-blankline-nvim else null)
-            (if cfg.underlineCurrentWord then vim-cursorword else null)
-
             nvim-which-key
             nvim-osc52
+		] ++ lib.optionals cfg.indentGuide [
+            indent-blankline-nvim
+		] ++ lib.optionals cfg.underlineCurrentWord [
+            vim-cursorword
         ];
 
         vim.nnoremap = {

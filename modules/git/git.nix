@@ -22,8 +22,8 @@ in {
 			gitsigns
 			plenary-nvim
 			neogit
-
-			(if cfg.blameLine then nvim-blame-line else null)
+		] ++ lib.optionals cfg.blameLine [
+			nvim-blame-line
 		];
 
 		vim.luaConfigRC = builtins.readFile ./git.lua;
