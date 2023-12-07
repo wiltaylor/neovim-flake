@@ -16,6 +16,7 @@
 		nord-vim					= { url = "github:arcticicestudio/nord-vim";					flake = false; };
 		vim-startify				= { url = "github:mhinz/vim-startify";							flake = false; };
 		lightline-vim				= { url = "github:itchyny/lightline.vim";						flake = false; };
+		lualine-nvim				= { url = "github:nvim-lualine/lualine.nvim";					flake = false; };
 		nvim-lspconfig				= { url = "github:neovim/nvim-lspconfig";						flake = false; };
 		completion-nvim				= { url = "github:nvim-lua/completion-nvim";					flake = false; };
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
@@ -36,6 +37,7 @@
 		vim-test					= { url = "github:vim-test/vim-test";							flake = false; };
 		nvim-which-key				= { url = "github:folke/which-key.nvim";						flake = false; };
 		indent-blankline-nvim		= { url = "github:lukas-reineke/indent-blankline.nvim";			flake = false; };
+		nvim-navic					= { url = "github:SmiteshP/nvim-navic";							flake = false; };
 
 
 # My additions
@@ -64,8 +66,6 @@
 		nvim-treesitter				= { url = "github:nvim-treesitter/nvim-treesitter";				flake = false; };
 		nvim-treesitter-context		= { url = "github:nvim-treesitter/nvim-treesitter-context";		flake = false; };
 		nvim-treesitter-textobjects	= { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
-		nvim-navic					= { url = "github:SmiteshP/nvim-navic";							flake = false; };
-		lualine						= { url = "github:nvim-lualine/lualine.nvim";					flake = false; };
 		scope						= { url = "github:tiagovla/scope.nvim";							flake = false; };
 
 	};
@@ -77,6 +77,7 @@
 			"nord-vim"
 			"vim-startify"
 			"lightline-vim"
+			"lualine-nvim"
 			"nvim-lspconfig"
 			"completion-nvim"
 			"vim-nix"
@@ -99,6 +100,7 @@
 			"vim-cursorword"
 			"vim-test"
 			"nvim-which-key"
+			"nvim-navic"
 		];
 
 		externalBitsOverlay = top: last: {
@@ -144,7 +146,8 @@
 				vim.dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
 				vim.theme.nord.enable				= true;
 				vim.disableArrows					= true;
-				vim.statusline.lightline.enable		= true;
+				vim.statusline.lightline.enable		= false;
+				vim.statusline.lualine.enable		= true;
 				vim.lsp.enable						= true;
 				vim.lsp.bash						= true;
 				vim.lsp.go							= true;

@@ -1,6 +1,7 @@
 {pkgs, config, lib, ...}:
 {
-  imports = [
-    ./lightline.nix
-  ];
+	imports = [
+		./lualine.nix
+		./lightline.nix
+	];
 }

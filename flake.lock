@@ -194,7 +194,7 @@
         "type": "github"
       }
     },
-    "lualine": {
+    "lualine-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1697772980,
@@ -735,7 +735,7 @@
         "indent-blankline-nvim": "indent-blankline-nvim",
         "lightline-vim": "lightline-vim",
         "lsp_signature": "lsp_signature",
-        "lualine": "lualine",
+        "lualine-nvim": "lualine-nvim",
         "neogit": "neogit",
         "neotest": "neotest",
         "neotest-go": "neotest-go",

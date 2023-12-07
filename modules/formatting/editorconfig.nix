@@ -3,20 +3,17 @@ with lib;
 with builtins;
 
 let
-  cfg = config.vim.formatting.editorConfig;
-
+	cfg = config.vim.formatting.editorConfig;
 in {
+	options.vim.formatting.editorConfig = {
+		enable = mkEnableOption "Editor Config";
+	};
 
-  options.vim.formatting.editorConfig = {
-    enable = mkEnableOption "Enable barbar";
-
-  };
-
-  config = mkIf cfg.enable {
-    vim.startPlugins = with pkgs.neovimPlugins; [ 
-      editorconfig-vim
-    ];
-  };
+	config = mkIf cfg.enable {
+		vim.startPlugins = with pkgs.neovimPlugins; [ 
+			editorconfig-vim
+		];
+	};
 }
 
 

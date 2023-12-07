@@ -1,6 +1,6 @@
 { pkgs, config, lib, ...}:
 {
-  imports = [
-    ./editorconfig.nix
-  ];
+	imports = [
+		./editorconfig.nix
+	];
 }
