@@ -1,8 +1,9 @@
 # What is this?
-This is my personal neovim config. Feel free to take bits of it to build your own or run it yourself.
+This is my personal neovim config. Feel free to take bits of it to build your
+own or run it yourself.
 
-As this is my personal config I am bound to change it a lot so I recommend forking rather then pointing to
-this config.
+As this is my personal config I am bound to change it a lot so I recommend
+forking rather then pointing to this config. I forked from Wil Taylor's branch.
 
 # How to use
 Clone the repo and run the following from the directory:

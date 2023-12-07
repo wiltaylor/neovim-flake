@@ -8,7 +8,6 @@
 		./statusline
 		./lsp
 		./fuzzyfind
-		./filetree
 		./git
 		./formatting
 		./editor

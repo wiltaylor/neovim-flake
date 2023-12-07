@@ -141,7 +141,7 @@
 				vim.viAlias							= true;
 				vim.vimAlias						= true;
 				vim.dashboard.startify.enable		= true;
-				vim.dashboard.startify.customHeader	= [ "NIXOS NEOVIM CONFIG" ];
+				vim.dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
 				vim.theme.nord.enable				= true;
 				vim.disableArrows					= true;
 				vim.statusline.lightline.enable		= true;
@@ -165,7 +165,6 @@
 				vim.lsp.lightbulb					= true;
 				vim.lsp.variableDebugPreviews		= true;
 				vim.fuzzyfind.telescope.enable		= true;
-				vim.filetree.nvimTreeLua.enable		= true;
 				vim.git.enable						= true;
 				vim.formatting.editorConfig.enable	= true;
 				vim.editor.indentGuide				= true;

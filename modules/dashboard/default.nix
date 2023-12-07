@@ -1,6 +1,6 @@
 { pkgs, config, lib, ...}:
 {
-  imports = [
-    ./startify.nix
-  ];
+	imports = [
+		./startify.nix
+	];
 }
