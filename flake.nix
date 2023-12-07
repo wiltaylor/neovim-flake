@@ -11,9 +11,18 @@
 
 		rnix-lsp					= { url = "github:nix-community/rnix-lsp"; };
 
-		# Vim plugins
+		# Vim Themes
+		nvim-xenon					= { url = "github:minego/nvim-xenon";							flake = false; };
 		gruvbox						= { url = "github:morhetz/gruvbox";								flake = false; };
 		nord-vim					= { url = "github:arcticicestudio/nord-vim";					flake = false; };
+
+		# Git plugins
+		gitsigns					= { url = "github:lewis6991/gitsigns.nvim";						flake = false; };
+		fugitive					= { url = "github:tpope/vim-fugitive";							flake = false; };
+		fugitive-gitlab				= { url = "github:shumphrey/fugitive-gitlab.vim";				flake = false; };
+		nvim-blame-line				= { url = "github:tveskag/nvim-blame-line";						flake = false; };
+		neogit						= { url = "github:NeogitOrg/neogit";							flake = false; };
+
 		vim-startify				= { url = "github:mhinz/vim-startify";							flake = false; };
 		lightline-vim				= { url = "github:itchyny/lightline.vim";						flake = false; };
 		lualine-nvim				= { url = "github:nvim-lualine/lualine.nvim";					flake = false; };
@@ -28,11 +37,8 @@
 		plenary-nvim				= { url = "github:nvim-lua/plenary.nvim";						flake = false; };
 		nvim-web-devicons			= { url = "github:kyazdani42/nvim-web-devicons";				flake = false; };
 		nvim-tree-lua				= { url = "github:kyazdani42/nvim-tree.lua";					flake = false; };
-		vimagit						= { url = "github:jreybert/vimagit";							flake = false; };
-		fugitive					= { url = "github:tpope/vim-fugitive";							flake = false; };
 		nvim-lightbulb				= { url = "github:kosayoda/nvim-lightbulb";						flake = false; };
 		editorconfig-vim			= { url = "github:editorconfig/editorconfig-vim";				flake = false; };
-		nvim-blame-line				= { url = "github:tveskag/nvim-blame-line";						flake = false; };
 		nvim-dap-virtual-text		= { url = "github:theHamsta/nvim-dap-virtual-text";				flake = false; };
 		vim-cursorword				= { url = "github:itchyny/vim-cursorword";						flake = false; };
 		vim-test					= { url = "github:vim-test/vim-test";							flake = false; };
@@ -46,15 +52,12 @@
 
 # My additions
 
-		nvim-xenon					= { url = "github:minego/nvim-xenon";							flake = false; };
 		nvim-dap-ui					= { url = "github:rcarriga/nvim-dap-ui";						flake = false; };
 
 		neotest						= { url = "github:nvim-neotest/neotest";						flake = false; };
 		neotest-go					= { url = "github:nvim-neotest/neotest-go";						flake = false; };
 
 		flatten						= { url = "github:willothy/flatten.nvim";						flake = false; };
-		gitsigns					= { url = "github:lewis6991/gitsigns.nvim";						flake = false; };
-		neogit						= { url = "github:NeogitOrg/neogit";							flake = false; };
 		gitlab						= { url = "github:harrisoncramer/gitlab.nvim";					flake = false; };
 		nvim-dap-go					= { url = "github:leoluz/nvim-dap-go";							flake = false; };
 		goimpl						= { url = "github:edolphin-ydf/goimpl.nvim";					flake = false; };
@@ -62,7 +65,7 @@
 
 		nvim-lsp-smag				= { url = "github:weilbith/nvim-lsp-smag";						flake = false; };
 		lsp_signature				= { url = "github:ray-x/lsp_signature.nvim";					flake = false; };
-		nvim-code-action-men		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
+		nvim-code-action-menu		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
 		null-ls						= { url = "github:jose-elias-alvarez/null-ls.nvim";				flake = false; };
 		vim-rest-console			= { url = "github:diepm/vim-rest-console";						flake = false; };
 		scope						= { url = "github:tiagovla/scope.nvim";							flake = false; };
@@ -72,8 +75,16 @@
 	outputs = { self, nixpkgs, neovim, rnix-lsp, ... }@inputs:
 	let
 		plugins = [
+			"nvim-xenon"
 			"gruvbox"
 			"nord-vim"
+
+			"gitsigns"
+			"fugitive"
+			"fugitive-gitlab"
+			"nvim-blame-line"
+			"neogit"
+
 			"vim-startify"
 			"lightline-vim"
 			"lualine-nvim"
@@ -88,14 +99,11 @@
 			"plenary-nvim"
 			"nvim-web-devicons"
 			"nvim-tree-lua"
-			"vimagit"
-			"fugitive" 
 			"nvim-lightbulb"
 			"nvim-treesitter-context"
 			"nvim-treesitter-textobjects"
 			"editorconfig-vim"
 			"indent-blankline-nvim"
-			"nvim-blame-line"
 			"nvim-dap-virtual-text"
 			"vim-cursorword"
 			"vim-test"
@@ -149,7 +157,11 @@
 				mapLeaderSpace					= false;
 				dashboard.startify.enable		= true;
 				dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
-				theme.nord.enable				= true;
+
+				theme.xenon.enable				= true;
+				theme.nord.enable				= false;
+				theme.gruvbox.enable			= false;
+
 				disableArrows					= true;
 				statusline.lightline.enable		= false;
 				statusline.lualine.enable		= true;

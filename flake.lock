@@ -82,6 +82,22 @@
         "type": "github"
       }
     },
+    "fugitive-gitlab": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684751584,
+        "narHash": "sha256-wOBbFaEQ8PYMUHb8T+nU7WbbY6OlBacvidxGGO2aL3g=",
+        "owner": "shumphrey",
+        "repo": "fugitive-gitlab.vim",
+        "rev": "55fed481c0309b3405dd3d72921d687bf36873a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shumphrey",
+        "repo": "fugitive-gitlab.vim",
+        "type": "github"
+      }
+    },
     "gitlab": {
       "flake": false,
       "locked": {
@@ -288,11 +304,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1701958944,
-        "narHash": "sha256-sAQOuBppEiHQQsfa6nNlwwqzpeCOWkqLmuSb3md2Vmk=",
+        "lastModified": 1701964887,
+        "narHash": "sha256-t7WURA0lFviOCh1qbFH755GnRMaIIu0XYhd8ftIlUiM=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "4a34da82c18e6da1e46d6bf3d21082a6b6c8b947",
+        "rev": "b2d471ab337e56f660eb7c89ae24f447f7b7a165",
         "type": "github"
       },
       "original": {
@@ -382,7 +398,7 @@
         "type": "github"
       }
     },
-    "nvim-code-action-men": {
+    "nvim-code-action-menu": {
       "flake": false,
       "locked": {
         "lastModified": 1671523188,
@@ -673,11 +689,11 @@
     "nvim-xenon": {
       "flake": false,
       "locked": {
-        "lastModified": 1678906626,
-        "narHash": "sha256-dw6u5IJsyNDInQUHX/c7WQllA+14ZIu98xwO9+3/9Ic=",
+        "lastModified": 1701972979,
+        "narHash": "sha256-OwLDq60MKslse5w91RPuOyzfNRh3RX+tX8bkyY/150A=",
         "owner": "minego",
         "repo": "nvim-xenon",
-        "rev": "09f0cacbba1c40aff7d1c6a99815fc84930f56e7",
+        "rev": "4882ca34545573c8331fc49aa6ed5c6754ec9c69",
         "type": "github"
       },
       "original": {
@@ -744,6 +760,7 @@
         "editorconfig-vim": "editorconfig-vim",
         "flatten": "flatten",
         "fugitive": "fugitive",
+        "fugitive-gitlab": "fugitive-gitlab",
         "gitlab": "gitlab",
         "gitsigns": "gitsigns",
         "goimpl": "goimpl",
@@ -760,7 +777,7 @@
         "nord-vim": "nord-vim",
         "null-ls": "null-ls",
         "nvim-blame-line": "nvim-blame-line",
-        "nvim-code-action-men": "nvim-code-action-men",
+        "nvim-code-action-menu": "nvim-code-action-menu",
         "nvim-dap": "nvim-dap",
         "nvim-dap-go": "nvim-dap-go",
         "nvim-dap-ui": "nvim-dap-ui",
@@ -788,8 +805,7 @@
         "vim-nix": "vim-nix",
         "vim-rest-console": "vim-rest-console",
         "vim-startify": "vim-startify",
-        "vim-test": "vim-test",
-        "vimagit": "vimagit"
+        "vim-test": "vim-test"
       }
     },
     "scope": {
@@ -931,22 +947,6 @@
       "original": {
         "owner": "vim-test",
         "repo": "vim-test",
-        "type": "github"
-      }
-    },
-    "vimagit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1656880155,
-        "narHash": "sha256-fhazQQqyFaO0fdoeNI9nBshwTDhKNHH262H/QThtuO0=",
-        "owner": "jreybert",
-        "repo": "vimagit",
-        "rev": "308650ddc1e9a94e49fae0ea04bbc1c45f23d4c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jreybert",
-        "repo": "vimagit",
         "type": "github"
       }
     }
