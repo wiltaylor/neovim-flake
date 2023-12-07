@@ -35,8 +35,10 @@ in {
             completion-nvim 
             nvim-dap
             telescope-dap
-            nvim-treesitter
+
+			pkgs.vimPlugins.nvim-treesitter.withAllGrammars
             nvim-treesitter-context
+            nvim-treesitter-textobjects
 
             (if cfg.nix                     then vim-nix                else null)
             (if cfg.lightbulb               then nvim-lightbulb         else null)

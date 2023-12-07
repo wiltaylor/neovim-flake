@@ -38,6 +38,8 @@
 		nvim-which-key				= { url = "github:folke/which-key.nvim";						flake = false; };
 		indent-blankline-nvim		= { url = "github:lukas-reineke/indent-blankline.nvim";			flake = false; };
 		nvim-navic					= { url = "github:SmiteshP/nvim-navic";							flake = false; };
+		nvim-treesitter-context		= { url = "github:nvim-treesitter/nvim-treesitter-context";		flake = false; };
+		nvim-treesitter-textobjects	= { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
 
 
 # My additions
@@ -63,9 +65,6 @@
 		nvim-code-action-men		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
 		null-ls						= { url = "github:jose-elias-alvarez/null-ls.nvim";				flake = false; };
 		vim-rest-console			= { url = "github:diepm/vim-rest-console";						flake = false; };
-		nvim-treesitter				= { url = "github:nvim-treesitter/nvim-treesitter";				flake = false; };
-		nvim-treesitter-context		= { url = "github:nvim-treesitter/nvim-treesitter-context";		flake = false; };
-		nvim-treesitter-textobjects	= { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
 		scope						= { url = "github:tiagovla/scope.nvim";							flake = false; };
 
 	};
@@ -91,8 +90,8 @@
 			"vimagit"
 			"fugitive" 
 			"nvim-lightbulb"
-			"nvim-treesitter"
 			"nvim-treesitter-context"
+			"nvim-treesitter-textobjects"
 			"editorconfig-vim"
 			"indent-blankline-nvim"
 			"nvim-blame-line"

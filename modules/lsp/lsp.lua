@@ -31,6 +31,9 @@ require('nvim-treesitter.configs').setup {
 		enable                  = true,
 		disable                 = {},
 	},
+	indent = {
+		enable					= false,
+	},
 	rainbow = {
 		enable                  = true,
 		extended_mode           = true,
@@ -50,10 +53,40 @@ require('nvim-treesitter.configs').setup {
 			node_decremental    = "grm",
 		},
 	},
+
+	textobjects = {
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+
+			goto_next_start = {
+				["]m"] = "@function.outer",
+				["]]"] = "@function.outer",
+				-- ["]]"] = { query = "@class.outer", desc = "Next class start" },
+			},
+			goto_next_end = {
+				["]M"] = "@function.outer",
+				["]["] = "@function.outer",
+				-- ["]["] = "@class.outer",
+			},
+			goto_previous_start = {
+				["[m"] = "@function.outer",
+				["[["] = "@function.outer",
+				-- ["[["] = "@class.outer",
+			},
+			goto_previous_end = {
+				["[M"] = "@function.outer",
+				["[]"] = "@function.outer",
+				-- ["[]"] = "@class.outer",
+			},
+		},
+	},
 }
 
-vim.cmd [[set foldmethod=expr]]
-vim.cmd [[set foldlevel=10]]
-vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
+local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+vim.cmd [[ hi link TreesitterContext StatusLine ]]
 
 
