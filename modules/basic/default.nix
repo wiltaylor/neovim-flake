@@ -173,6 +173,28 @@ in {
                     set nosmartindent
                     set nocindent
                     set indentexpr= ""
+
+                    lua << EOF
+                    vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufEnter", "BufWinEnter", "FileType"}, {
+                    	pattern = { "*" },
+                    	callback = function()
+                            local bo			= vim.bo	-- buffer options
+
+                    		bo.autoindent		= false
+                    		bo.smartindent		= false
+                    		bo.cindent			= false
+                    		bo.indentexpr		= ""
+                    		bo.formatoptions	= ""
+                    
+                    		bo.autoread			= true
+                    		bo.expandtab		= false
+                    
+                    		bo.tabstop			= ${toString cfg.tabWidth}
+                    		bo.softtabstop		= ${toString cfg.tabWidth}
+                    		bo.shiftwidth		= ${toString cfg.tabWidth}
+                    	end,
+                    })
+                    EOF
                     ''}
 
                 ${writeIf cfg.preventJunkFiles ''

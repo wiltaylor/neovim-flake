@@ -170,6 +170,10 @@ in {
 		vim.configRC = ''
             " Lua config from vim.luaConfigRC
             ${wrapLuaConfig cfg.luaConfigRC}
+
+            lua << EOF
+            ${builtins.readFile ./settings.lua}
+            EOF
             
             ${builtins.concatStringsSep "\n" nmap}
             ${builtins.concatStringsSep "\n" imap}
