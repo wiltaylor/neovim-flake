@@ -542,6 +542,22 @@
         "type": "github"
       }
     },
+    "nvim-scope": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698592569,
+        "narHash": "sha256-z1ytdhxKrLnZG8qMPEe2h+wC9tF4K/x6zplwnIojZuE=",
+        "owner": "tiagovla",
+        "repo": "scope.nvim",
+        "rev": "cd27af77ad61a7199af5c28d27013fb956eb0e3e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tiagovla",
+        "repo": "scope.nvim",
+        "type": "github"
+      }
+    },
     "nvim-telescope": {
       "flake": false,
       "locked": {
@@ -770,6 +786,7 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-navic": "nvim-navic",
         "nvim-osc52": "nvim-osc52",
+        "nvim-scope": "nvim-scope",
         "nvim-telescope": "nvim-telescope",
         "nvim-telescope-dap": "nvim-telescope-dap",
         "nvim-telescope-emoji": "nvim-telescope-emoji",
@@ -782,29 +799,12 @@
         "plenary-nvim": "plenary-nvim",
         "popup-nvim": "popup-nvim",
         "rnix-lsp": "rnix-lsp",
-        "scope": "scope",
         "vim-cursorword": "vim-cursorword",
         "vim-go-coverage": "vim-go-coverage",
         "vim-nix": "vim-nix",
         "vim-rest-console": "vim-rest-console",
         "vim-startify": "vim-startify",
         "vim-test": "vim-test"
-      }
-    },
-    "scope": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1698592569,
-        "narHash": "sha256-z1ytdhxKrLnZG8qMPEe2h+wC9tF4K/x6zplwnIojZuE=",
-        "owner": "tiagovla",
-        "repo": "scope.nvim",
-        "rev": "cd27af77ad61a7199af5c28d27013fb956eb0e3e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tiagovla",
-        "repo": "scope.nvim",
-        "type": "github"
       }
     },
     "systems": {

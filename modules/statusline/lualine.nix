@@ -20,6 +20,7 @@ in {
 				nvim-web-devicons
 				nvim-telescope
 				nvim-navic
+				nvim-scope
 			];
 
 			vim.globals = {

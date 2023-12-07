@@ -69,10 +69,5 @@ in {
 				'' else ""}
 
             '';
-
-        vim.configRC = ''
-            ${if cfg.indentGuide then ''set list lcs=tab:\|\'' else ""}
-            '';
-
     };
 }

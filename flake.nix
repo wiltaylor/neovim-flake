@@ -29,6 +29,8 @@
 		vim-startify				= { url = "github:mhinz/vim-startify";							flake = false; };
 		lightline-vim				= { url = "github:itchyny/lightline.vim";						flake = false; };
 		lualine-nvim				= { url = "github:nvim-lualine/lualine.nvim";					flake = false; };
+		nvim-scope					= { url = "github:tiagovla/scope.nvim";							flake = false; };
+
 		nvim-lspconfig				= { url = "github:neovim/nvim-lspconfig";						flake = false; };
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
 		nvim-dap					= { url = "github:mfussenegger/nvim-dap";						flake = false; };
@@ -69,7 +71,6 @@
 		nvim-code-action-menu		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
 		null-ls						= { url = "github:jose-elias-alvarez/null-ls.nvim";				flake = false; };
 		vim-rest-console			= { url = "github:diepm/vim-rest-console";						flake = false; };
-		scope						= { url = "github:tiagovla/scope.nvim";							flake = false; };
 
 	};
 
@@ -92,6 +93,8 @@
 			"vim-startify"
 			"lightline-vim"
 			"lualine-nvim"
+			"nvim-scope"
+
 			"nvim-lspconfig"
 			"completion-nvim"
 			"vim-nix"
@@ -214,7 +217,7 @@
 				formatting.editorConfig.enable	= true;
 
 				editor = {
-					indentGuide					= false;
+					indentGuide					= true;
 					underlineCurrentWord		= true;
 				};
 				test.enable						= true;
