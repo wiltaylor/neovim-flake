@@ -26,7 +26,6 @@ in {
     css = mkEnableOption "Enable css support";
     html = mkEnableOption "Enable html support";
     clang = mkEnableOption "Enable C/C++ with clang";
-    cmake = mkEnableOption "Enable CMake";
     json = mkEnableOption "Enable JSON";
 
     lightbulb = mkEnableOption "Enable Light Bulb";
@@ -334,14 +333,6 @@ in {
           on_attach=require'completion'.on_attach;
           cmd = {'${pkgs.clang-tools}/bin/clangd', '--background-index'};
           filetypes = { "c", "cpp", "objc", "objcpp" };
-        }
-      '' else ""}
-
-      ${if cfg.cmake then ''
-        lspconfig.cmake.setup{
-          on_attach=require'completion'.on_attach;
-          cmd = {'${pkgs.cmake-language-server}/bin/cmake-language-server'};
-          filetypes = { "cmake"};
         }
       '' else ""}
 
