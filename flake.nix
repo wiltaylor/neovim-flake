@@ -102,7 +102,7 @@
 			"nvim-navic"
 		];
 
-		externalBitsOverlay = top: last: {
+		externalPackages = top: last: {
 			rnix-lsp		= rnix-lsp.defaultPackage.${top.system};
 			neovim-nightly	= neovim.defaultPackage.${top.system};
 		};
@@ -129,7 +129,7 @@
 
 			overlays = [
 				pluginOverlay
-				externalBitsOverlay
+				externalPackages
 			];
 		};
 
@@ -138,40 +138,42 @@
 		mkNeoVimPkg = pkgs: lib.neovimBuilder {
 			inherit pkgs;
 
-			config = {
-				vim.viAlias							= true;
-				vim.vimAlias						= true;
-				vim.dashboard.startify.enable		= true;
-				vim.dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
-				vim.theme.nord.enable				= true;
-				vim.disableArrows					= true;
-				vim.statusline.lightline.enable		= false;
-				vim.statusline.lualine.enable		= true;
-				vim.lsp.enable						= true;
-				vim.lsp.bash						= true;
-				vim.lsp.go							= true;
-				vim.lsp.nix							= true;
-				vim.lsp.python						= true;
-				vim.lsp.ruby						= true;
-				vim.lsp.rust						= true;
-				vim.lsp.terraform					= true;
-				vim.lsp.typescript					= true;
-				vim.lsp.vimscript					= true;
-				vim.lsp.yaml						= true;
-				vim.lsp.docker						= true;
-				vim.lsp.tex							= true;
-				vim.lsp.css							= true;
-				vim.lsp.html						= true;
-				vim.lsp.json						= true;
-				vim.lsp.clang						= true;
-				vim.lsp.lightbulb					= true;
-				vim.lsp.variableDebugPreviews		= true;
-				vim.fuzzyfind.telescope.enable		= true;
-				vim.git.enable						= true;
-				vim.formatting.editorConfig.enable	= true;
-				vim.editor.indentGuide				= true;
-				vim.editor.underlineCurrentWord		= true;
-				vim.test.enable						= true;
+			config.vim = {
+				neovimPackage					= pkgs.neovim-nightly;
+
+				viAlias							= true;
+				vimAlias						= true;
+				dashboard.startify.enable		= true;
+				dashboard.startify.customHeader	= [ "MICAH'S NEOVIM" ];
+				theme.nord.enable				= true;
+				disableArrows					= true;
+				statusline.lightline.enable		= false;
+				statusline.lualine.enable		= true;
+				lsp.enable						= true;
+				lsp.bash						= true;
+				lsp.go							= true;
+				lsp.nix							= true;
+				lsp.python						= true;
+				lsp.ruby						= true;
+				lsp.rust						= true;
+				lsp.terraform					= true;
+				lsp.typescript					= true;
+				lsp.vimscript					= true;
+				lsp.yaml						= true;
+				lsp.docker						= true;
+				lsp.tex							= true;
+				lsp.css							= true;
+				lsp.html						= true;
+				lsp.json						= true;
+				lsp.clang						= true;
+				lsp.lightbulb					= true;
+				lsp.variableDebugPreviews		= true;
+				fuzzyfind.telescope.enable		= true;
+				git.enable						= true;
+				formatting.editorConfig.enable	= true;
+				editor.indentGuide				= true;
+				editor.underlineCurrentWord		= true;
+				test.enable						= true;
 			};
 		};
 	in {

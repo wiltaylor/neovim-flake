@@ -18,6 +18,12 @@ let
 
 in {
 	options.vim = {
+		neovimPackage = mkOption {
+			description		= "The neovim package to use";
+			default			= [ ];
+			type			= types.package;
+		};
+
 		viAlias = mkOption {
 			description		= "Enable vi alias";
 			type			= types.bool;

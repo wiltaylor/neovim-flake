@@ -25,7 +25,7 @@ rec {
 
 	neovimBuilder = {pkgs, config, ...}:
 		let
-			neovimPlugins = pkgs.neovimPlugins;
+			neovimPlugins	= pkgs.neovimPlugins;
 
 			vimOptions = pkgs.lib.evalModules {
 				modules = [
@@ -39,7 +39,7 @@ rec {
 			};
 
 			vim = vimOptions.config.vim;
-		in pkgs.wrapNeovim pkgs.neovim-nightly {
+		in pkgs.wrapNeovim config.vim.neovimPackage {
 			viAlias = true;
 			vimAlias = true;
 
