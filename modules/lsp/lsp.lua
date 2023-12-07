@@ -1,27 +1,4 @@
-local wk = require("which-key")
-wk.register({
-	c = {
-		name    = "Code",
-		a       = {"Code Action"},
-		f       = {"Format"},
-		d       = {"Definitions"},
-		i       = {"Implementations"},
-		R       = {"Rename"},
-		r       = {"References"},
-		k       = {"Signature"},
-	},
-
-	d = {
-		name    = "Debug",
-		o       = {"Step Over"},
-		s       = {"Step Into"},
-		O       = {"Step Out"},
-		c       = {"Continue"},
-		b       = {"Toggle Break Point"},
-		r       = {"Debug Repl"},
-	},
-},{ prefix = "<leader>" })
-
+local wk		= require("which-key")
 local lspconfig = require'lspconfig'
 local dap       = require'dap'
 
@@ -89,4 +66,30 @@ vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
 vim.cmd [[ hi link TreesitterContext StatusLine ]]
 
+-- LSP Configurations
+
+-- graphql
+-- Install with: npm install -g graphql-language-service-cli
+lspconfig.graphql.setup{}
+lspconfig.gopls.setup{ }
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		show_header = true,
+		source = 'any',
+		border = 'rounded',
+		focusable = false,
+	}
+})
 

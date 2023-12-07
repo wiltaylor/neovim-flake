@@ -32,6 +32,10 @@
 		nvim-scope					= { url = "github:tiagovla/scope.nvim";							flake = false; };
 
 		nvim-lspconfig				= { url = "github:neovim/nvim-lspconfig";						flake = false; };
+		nvim-lsp-smag				= { url = "github:weilbith/nvim-lsp-smag";						flake = false; };
+		lsp_signature				= { url = "github:ray-x/lsp_signature.nvim";					flake = false; };
+		nvim-code-action-menu		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
+
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
 		nvim-dap					= { url = "github:mfussenegger/nvim-dap";						flake = false; };
 		nvim-telescope				= { url = "github:nvim-telescope/telescope.nvim";				flake = false; };
@@ -66,9 +70,6 @@
 		goimpl						= { url = "github:edolphin-ydf/goimpl.nvim";					flake = false; };
 		vim-go-coverage				= { url = "github:kyoh86/vim-go-coverage";						flake = false; };
 
-		nvim-lsp-smag				= { url = "github:weilbith/nvim-lsp-smag";						flake = false; };
-		lsp_signature				= { url = "github:ray-x/lsp_signature.nvim";					flake = false; };
-		nvim-code-action-menu		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
 		null-ls						= { url = "github:jose-elias-alvarez/null-ls.nvim";				flake = false; };
 		vim-rest-console			= { url = "github:diepm/vim-rest-console";						flake = false; };
 
@@ -89,13 +90,16 @@
 
             "flatten"
 
-
 			"vim-startify"
 			"lightline-vim"
 			"lualine-nvim"
 			"nvim-scope"
 
 			"nvim-lspconfig"
+			"nvim-lsp-smag"
+			"lsp_signature"
+			"nvim-code-action-menu"
+
 			"completion-nvim"
 			"vim-nix"
 			"nvim-dap"
