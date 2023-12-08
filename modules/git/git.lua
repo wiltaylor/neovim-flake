@@ -70,7 +70,6 @@ wk.register({
 
 -- Gitlab
 diffview.setup({})
-require("gitlab.server").build(true)
 
 gitlab.setup({
 	reviewer = "diffview",
