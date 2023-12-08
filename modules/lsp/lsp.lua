@@ -118,3 +118,44 @@ null_ls.setup({
 	}
 })
 
+
+-- Setup LSP bindings when an LSP attaches
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local bufnr		= args.buf
+		local client	= vim.lsp.get_client_by_id(args.data.client_id)
+
+		local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+		local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+		-- Enable completion triggered by <c-x><c-o>
+		buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+		-- Mappings.
+		local opts = { noremap=true, silent=true }
+
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+		buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+		buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+		buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+		buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+		buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+		buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+		buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+		buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+		buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+		-- Call require on each of these to make sure they are loaded after attach
+		require('lsp_smag')
+		require('lsp_signature').on_attach({
+			bind = true,
+		}, bufnr)
+
+		-- This is used by ui.lua to show the code context using the LSP
+		if client.server_capabilities.documentSymbolProvider then
+			require('nvim-navic').attach(client, bufnr)
+		end
+	end
+})
+

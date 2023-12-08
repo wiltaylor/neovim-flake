@@ -1,7 +1,10 @@
 local wk		= require("which-key")
 local gitsigns	= require("gitsigns")
 local neogit	= require("neogit")
+local diffview	= require("diffview")
+local gitlab	= require("gitlab")
 
+-- git signs
 gitsigns.setup({
 	signs = {
 		add				= { text = '│' },
@@ -39,6 +42,9 @@ gitsigns.setup({
 	},
 })
 
+-- Neogit (Margit for neovim)
+neogit.setup({})
+
 -- Git bindings using <leader>g in a group
 wk.register({
 	["<leader>g"] = {
@@ -62,4 +68,37 @@ wk.register({
 	}
 }, { mode = "n", silent = true })
 
-neogit.setup({})
+-- Gitlab
+diffview.setup({})
+require("gitlab.server").build(true)
+
+gitlab.setup({
+	reviewer = "diffview",
+	popup = {
+		exit = "<Esc>",
+		perform_action = "<leader>s",
+		perform_linewise_action = "<enter>",
+	},
+})
+
+-- Gitlab bindings using <leader>l in a group
+wk.register({
+	["<leader>l"] = {
+		name = "Gitlab",
+
+		r = { gitlab.review,				"Review" },
+		s = { gitlab.summary,				"Summary" },
+		A = { gitlab.approve,				"Approve" },
+		R = { gitlab.revoke,				"Revoke" },
+		c = { gitlab.create_comment,		"Comment" },
+		n = { gitlab.create_note,			"Add Note" },
+		d = { gitlab.toggle_discussions,	"Toggle Discussions" },
+		aa= { gitlab.add_assignee,			"Add Assignee" },
+		ad= { gitlab.delete_assignee,		"Delete Assignee" },
+		ra= { gitlab.add_reviewer,			"Add Reviewer" },
+		rd= { gitlab.delete_reviewer,		"Delete Reviewer" },
+		p = { gitlab.pipeline,				"Pipeline" },
+		o = { gitlab.open_in_browser,		"Open in Browser" },
+	}
+}, { mode = "n", silent = true })
+

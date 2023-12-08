@@ -1,36 +1,46 @@
-{ pkgs, config, lib, ...}:
+{ pkgs, config, lib, inputs, ...}:
 with lib;
 with builtins;
 
 let
-	cfg = config.vim.git;
+    cfg = config.vim.git;
 in {
-	options.vim.git = {
-		enable			=  mkEnableOption "Git support"; 
-		blameLine = mkOption {
-			default		= true;
-			description	= "Prints blame info of who edited the line you are on.";
-			type		= types.bool;
-		};
-	};
+    options.vim.git = {
+        enable          =  mkEnableOption "Git support"; 
+        blameLine = mkOption {
+            default     = true;
+            description = "Prints blame info of who edited the line you are on.";
+            type        = types.bool;
+        };
+    };
 
-	config = mkIf cfg.enable {
-		vim.startPlugins = with pkgs.neovimPlugins; [
-			fugitive
-			fugitive-gitlab
-			nvim-telescope
-			gitsigns
-			plenary-nvim
-			neogit
-		] ++ lib.optionals cfg.blameLine [
-			nvim-blame-line
-		];
+    config = mkIf cfg.enable {
+        vim.startPlugins = with pkgs.neovimPlugins; [
+            fugitive
+            fugitive-gitlab
+            nvim-telescope
+            gitsigns
+            plenary-nvim
+            neogit
 
-		vim.luaConfigRC = builtins.readFile ./git.lua;
+            gitlab
+            nui-nvim
+            dressing-nvim
+            diffview-nvim
+        ] ++ lib.optionals cfg.blameLine [
+            nvim-blame-line
+        ];
 
-		vim.configRC = ''
-			${if cfg.blameLine then "autocmd BufEnter * EnableBlameLine" else ""}
-		'';
-	};
+        vim.luaConfigRC = ''
+            ${builtins.readFile ./git.lua}
+
+            -- Hack to make sure we have go installed
+            -- ${pkgs.go}
+            '';
+
+        vim.configRC = ''
+            ${if cfg.blameLine then "autocmd BufEnter * EnableBlameLine" else ""}
+        '';
+    };
 }
 

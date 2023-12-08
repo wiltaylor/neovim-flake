@@ -34,7 +34,6 @@
 		nvim-lspconfig				= { url = "github:neovim/nvim-lspconfig";						flake = false; };
 		nvim-lsp-smag				= { url = "github:weilbith/nvim-lsp-smag";						flake = false; };
 		lsp_signature				= { url = "github:ray-x/lsp_signature.nvim";					flake = false; };
-		nvim-code-action-menu		= { url = "github:weilbith/nvim-code-action-menu";				flake = false; };
 		null-ls						= { url = "github:jose-elias-alvarez/null-ls.nvim";				flake = false; };
 
 		vim-nix						= { url = "github:LnL7/vim-nix";								flake = false; };
@@ -58,6 +57,12 @@
 		nvim-treesitter-textobjects	= { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
 		nvim-osc52					= { url = "github:ojroques/nvim-osc52";							flake = false; };
 
+		nui-nvim					= { url = "github:MunifTanjim/nui.nvim";						flake = false; };
+		dressing-nvim				= { url = "github:stevearc/dressing.nvim";						flake = false; };
+		diffview-nvim				= { url = "github:sindrets/diffview.nvim";						flake = false; };
+
+		# Build as a flake to build the go server as well
+		gitlab						= { url = "./flakes/gitlab-nvim-flake";							flake = true; };
 
 # My additions
 
@@ -66,7 +71,6 @@
 		neotest						= { url = "github:nvim-neotest/neotest";						flake = false; };
 		neotest-go					= { url = "github:nvim-neotest/neotest-go";						flake = false; };
 
-		gitlab						= { url = "github:harrisoncramer/gitlab.nvim";					flake = false; };
 		nvim-dap-go					= { url = "github:leoluz/nvim-dap-go";							flake = false; };
 		goimpl						= { url = "github:edolphin-ydf/goimpl.nvim";					flake = false; };
 		vim-go-coverage				= { url = "github:kyoh86/vim-go-coverage";						flake = false; };
@@ -98,7 +102,6 @@
 			"nvim-lspconfig"
 			"nvim-lsp-smag"
 			"lsp_signature"
-			"nvim-code-action-menu"
 			"null-ls"
 
 			"completion-nvim"
@@ -122,6 +125,10 @@
 			"nvim-which-key"
 			"nvim-navic"
 			"nvim-osc52"
+
+			"nui-nvim"
+			"dressing-nvim"
+			"diffview-nvim"
 		];
 
 		externalPackages = top: last: {
@@ -143,14 +150,13 @@
 				value = buildPlug name;
 			}) plugins);
 		};
-    
+
 		allPkgs = lib.mkPkgs {
 			inherit nixpkgs; 
 
-			cfg = { };
-
 			overlays = [
 				pluginOverlay
+				inputs.gitlab.overlay
 				externalPackages
 			];
 		};
@@ -241,10 +247,10 @@
 			program		= "${self.defaultPackage."${sys}"}/bin/nvim";
 		});
 
-		defaultPackage	= lib.withDefaultSystems (sys: self.packages."${sys}".neovimWT);
+		defaultPackage	= lib.withDefaultSystems (sys: self.packages."${sys}".neovim-minego);
 
-		packages = lib.withDefaultSystems (sys: {
-			neovimWT	= mkNeoVimPkg allPkgs."${sys}";
+		packages = lib.withDefaultSystems (sys: rec {
+			neovim-minego = mkNeoVimPkg allPkgs."${sys}";
 		});
 	};
 }

@@ -29,7 +29,7 @@ rec {
 
 			vimOptions = pkgs.lib.evalModules {
 				modules = [
-					{ imports = [ ../modules]; }
+					{ imports = [ ../modules ]; }
 					config
 				];
 
@@ -39,17 +39,19 @@ rec {
 			};
 
 			vim = vimOptions.config.vim;
-		in pkgs.wrapNeovim config.vim.neovimPackage {
-			viAlias = true;
-			vimAlias = true;
+		in
+			pkgs.wrapNeovim config.vim.neovimPackage {
+				viAlias		= true;
+				vimAlias	= true;
 
-			configure = {
-				customRC = vim.configRC;
+				configure = {
+					customRC	= vim.configRC;
 
-				packages.myVimPackage = with pkgs.vimPlugins; {
-					start = vim.startPlugins;
-					opt = vim.optPlugins;
+					packages.myVimPackage = with pkgs.vimPlugins; {
+						start	= vim.startPlugins;
+						opt		= vim.optPlugins;
+					};
 				};
 			};
-		};
 }
+

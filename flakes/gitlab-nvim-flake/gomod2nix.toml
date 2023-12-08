@@ -1,0 +1,33 @@
+schema = 3
+
+[mod]
+  [mod."github.com/golang/protobuf"]
+    version = "v1.5.3"
+    hash = "sha256-svogITcP4orUIsJFjMtp+Uv1+fKJv2Q5Zwf2dMqnpOQ="
+  [mod."github.com/google/go-querystring"]
+    version = "v1.1.0"
+    hash = "sha256-itsKgKghuX26czU79cK6C2n+lc27jm5Dw1XbIRgwZJY="
+  [mod."github.com/hashicorp/go-cleanhttp"]
+    version = "v0.5.2"
+    hash = "sha256-N9GOKYo7tK6XQUFhvhImtL7PZW/mr4C4Manx/yPVvcQ="
+  [mod."github.com/hashicorp/go-retryablehttp"]
+    version = "v0.7.2"
+    hash = "sha256-PcLyolWF7G409rs7j3tnwgQK6xhgWYk9/iK2bO13TGQ="
+  [mod."github.com/xanzy/go-gitlab"]
+    version = "v0.93.2"
+    hash = "sha256-wjjfvxIXnIISPibpy5VdYQeAxD2Tn82k0qa9LOjnxyY="
+  [mod."golang.org/x/net"]
+    version = "v0.8.0"
+    hash = "sha256-2cOtqa7aJ5mn64kZ+8+PVjJ4uGbhpXTpC1vm/+iaZzM="
+  [mod."golang.org/x/oauth2"]
+    version = "v0.6.0"
+    hash = "sha256-M6yqSRqMcgp4bOCa4ey8/13z/0BrjQgyUQXJZU1hmnw="
+  [mod."golang.org/x/time"]
+    version = "v0.3.0"
+    hash = "sha256-/hmc9skIswMYbivxNS7R8A6vCTUF9k2/7tr/ACkcEaM="
+  [mod."google.golang.org/appengine"]
+    version = "v1.6.7"
+    hash = "sha256-zIxGRHiq4QBvRqkrhMGMGCaVL4iM4TtlYpAi/hrivS4="
+  [mod."google.golang.org/protobuf"]
+    version = "v1.29.1"
+    hash = "sha256-ilSVvttGSP2xpqpoyQ0/Iuyx1WMiwe6GASKTfoeaqxw="
